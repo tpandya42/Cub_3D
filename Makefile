@@ -4,11 +4,10 @@
 # ************************************** #
 
 NAME = cub3D
-
 CC = cc
-
 CFLAGS = -Wall -Wextra -Werror
 
+# --- LIBRARIES --
 LIBFT_DIR = ./libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 MLX_DIR = ./minilibx-linux
@@ -22,7 +21,7 @@ MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lz
 # MLX_FLAGS   = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
 # Debug flags
-DEBUG_FLAGS = -g -fsanitize=address -DDEBUG_MODE=1 #proposal alice
+DEBUG_FLAGS = -g -DDEBUG_MODE=1
 
 # Bonus flags
 BONUS_FLAGS = -DBONUS_MODE=1 #check if works
@@ -31,14 +30,16 @@ BONUS_FLAGS = -DBONUS_MODE=1 #check if works
 # ************************************** #
 #               SOURCES                  #
 # ************************************** #
-SRC = #include here
+SRC = src/main.c \
+      $(wildcard src/raycast/*.c)	#CHANGE FOR FILE NAMES!
+
 OBJ_DIR = ./obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
-BONUS_SRC   = raycast/minimap_bonus.c render/hud_bonus.c #include here
+#BONUS_SRC   = raycast/minimap_bonus.c render/hud_bonus.c #include here
+#BONUS_OBJ   = $(addprefix $(OBJ_DIR)/, $(BONUS_SRC:.c=.o))
 
-BONUS_OBJ   = $(addprefix $(OBJ_DIR)/, $(BONUS_SRC:.c=.o))
-
+# --- Include paths
 INCLUDES    = -I include -I $(LIBFT_DIR)
 
 # ************************************** #
@@ -66,22 +67,25 @@ $(MLX_CONFIGURED): ./minilibx-linux/configure
 
 #The obj dir will be created if it doesn't exist
 $(OBJ_DIR)/%.o: %.c
-	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 # ************************************** #
 #              BONUS MODE                #
 # ************************************** #
 
-bonus:
-	$(MAKE) CFLAGS="$(CFLAGS) $(BONUS_FLAGS)" OBJ="$(OBJ) $(BONUS_OBJ)" NAME="$(NAME)_bonus" re
+#bonus:
+#	$(MAKE) CFLAGS="$(CFLAGS) $(BONUS_FLAGS)" NAME="$(NAME)_bonus" all #CHECK AND TEST THIS
 
 # ************************************** #
 #              DEBUG MODE                #
 # ************************************** #
 
-debug:
-	$(MAKE) CFLAGS="$(CFLAGS) $(DEBUG_FLAGS)" NAME="$(NAME)_debug" re
+debug: CFLAGS += $(DEBUG_FLAGS)
+debug: all
+
+# For macOS users (uncomment below)
+# MLX_FLAGS = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
 # ************************************** #
 #              CLEAN-UP                  #
