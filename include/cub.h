@@ -7,13 +7,22 @@
 #include <fcntl.h>
 #include <sys/time.h>
 #include <stdbool.h>
-#include "../libft/libft.h"
-#include "../minilibx-linux/mlx.h"
-#include <X11/X.h>
-#include <X11/keysym.h>
+#include "../libft/libft.h"//do we need this? -> Tanmay?
+#include "../minilibx-linux/mlx.h"//do we need this? -> Tanmay?
+#include <X11/X.h>//do we need this? -> Tanmay?
+#include <X11/keysym.h>//do we need this? -> Tanmay?
 
-// Include Sub Headers
-#include "struct.h"
-#include "init.h"
+// Own headers
+# include "struct.h"
+# include "init.h"
+# include "window.h"
+# include "raycast.h"
+# include "util.h"
+
+//Bonus headers
+# include "minimap_bonus.h"
+
+//Debug headers
+# include "debug.h"
 
 #endif
