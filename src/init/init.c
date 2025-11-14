@@ -1,24 +1,20 @@
 #include "cub.h"
 
-void	init_display(t_display *display)
+int	init_display(t_display *display)
 {
-	display->mlx = NULL;
-	display->win = NULL;
+	if (ini_library(display))
+		return (1);
+	ini_win(display);
+	// display->win = NULL;
 	display->img = NULL;
 	display->addr = NULL;
 	display->bpp = 0;
 	display->line_len = 0;
 	display->endian = 0;
+	return (0);
 }
 
-void	init_map(t_map *map)
-{
-	map->grid = NULL;
-	map->width = 0;
-	map->height = 0;
-}
-
-void	init_player(t_player *player)
+int	init_player(t_player *player)
 {
 	player->ini_x = 0;
 	player->ini_y = 0;
@@ -30,6 +26,7 @@ void	init_player(t_player *player)
 	player->plane_y = 0;
 	player->rot_speed = 0;
 	player->move_speed = 0;
+	return (0);//return 1 when dynamic if error
 }
 
 void	init_texture(t_texture *texture)
@@ -47,15 +44,18 @@ void	init_color(t_color *color)
 	color->r = -1;
 	color->g = -1;
 	color->b = -1;
-	color->hex = -1;
+	color->hex = (color->r << 16) | (color->g << 8) | color->b;
 }
 
-void	init_init(t_game *game)
+int	init_game(t_game *game)//I changed init_init to init_game
 {
-	init_display(&game->display);
-	init_map(&game->map);
+	if (init_display(&game->display))
+		return (1);
+	if (init_map(&game->map))
+		return (1);
 	init_player(&game->player);
 	init_texture(&game->texture);
 	init_color(&game->floor);
 	init_color(&game->ceiling);
+	return (0);
 }
