@@ -13,9 +13,12 @@ void	init_display(t_display *display)
 
 void	init_map(t_map *map)
 {
-	map->grid = NULL;
+	map->map = NULL;
 	map->width = 0;
 	map->height = 0;
+	map->player_x = 0;
+	map->player_y = 0;
+	map->player_dir = NULL;
 }
 
 void	init_player(t_player *player)
@@ -44,10 +47,8 @@ void	init_texture(t_texture *texture)
 
 void	init_color(t_color *color)
 {
-	color->r = -1;
-	color->g = -1;
-	color->b = -1;
-	color->hex = -1;
+	color->floor = {0};
+	color->ceiling = {0};
 }
 
 void	init_init(t_game *game)
@@ -58,4 +59,5 @@ void	init_init(t_game *game)
 	init_texture(&game->texture);
 	init_color(&game->floor);
 	init_color(&game->ceiling);
+	game->flags = 0;
 }
