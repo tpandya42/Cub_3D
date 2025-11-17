@@ -6,37 +6,11 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:01:44 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/14 18:44:09 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/17 17:41:30 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-
-
-int	ini_library(t_display *display)
-{
-	display->mlx = mlx_init();
-	if (!display->mlx)
-	{
-		print_error("Error: Unable to initialize mlx");
-		return (1);
-	}
-	return (0);
-}
-
-int	init_display(t_display *display)
-{
-	if (ini_library(display))
-		return (1);
-	init_win(display);
-	display->win = NULL;
-	display->img = NULL;
-	display->addr = NULL;
-	display->bpp = 0;
-	display->line_len = 0;
-	display->endian = 0;
-	return (0);
-}
 
 void	init_map(t_map *map)
 {
@@ -93,5 +67,6 @@ void	init_init(t_game *game)
 	init_texture(&game->textures);
 	init_color(&game->floor);
 	init_color(&game->ceiling);
+	init_minimap(game);
 	game->flags = 0;
 }

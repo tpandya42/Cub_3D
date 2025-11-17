@@ -6,12 +6,14 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:29:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/17 08:30:35 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/17 17:28:52 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 #include "dummy.h"
+#include "render.h"
+
 
 int	main(void)
 {

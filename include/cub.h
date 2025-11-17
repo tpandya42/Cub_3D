@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:53:43 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/17 08:55:17 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/17 16:36:10 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # include "utils.h"
 
 //Bonus headers
-# include "minimap_bonus.h"
+# include "minimap.h"
 
 //Debug headers
 # include "debug.h"

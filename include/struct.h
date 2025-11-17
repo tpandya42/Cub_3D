@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:51:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/17 08:53:03 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/17 17:36:06 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # define WIN_WIDTH 1200
 # define WIN_HEIGHT 800
-# define MINI 8 //minimap BONUS
 # define TILE_SIZE 64 //3d
 # define ALL_IDS (ID_NO|ID_SO|ID_WE|ID_EA|ID_F|ID_C)
 
@@ -77,6 +76,15 @@ typedef struct s_player
 	double	move_speed;
 }	t_player;
 
+typedef struct s_minimap
+{
+	int tile_size;		// size of each cell
+	int width;			// width in pixels
+	int height;			// height in pixels
+	int offset_x;		// horizontal offset from the window
+	int offset_y;		// vertical offset from the window
+} t_minimap;
+
 typedef struct s_display
 {
 	void	*mlx;
@@ -98,6 +106,7 @@ typedef struct s_game
 	t_texture	textures;
 	t_color		floor;
 	t_color		ceiling;
+	t_minimap	minimap;
 	int			flags;
 }	t_game;
 

@@ -1,28 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.h                                             :+:      :+:    :+:   */
+/*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/17 08:45:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/17 17:52:43 by albetanc         ###   ########.fr       */
+/*   Created: 2025/11/17 16:21:09 by albetanc          #+#    #+#             */
+/*   Updated: 2025/11/17 17:28:49 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INIT_H	
-# define INIT_H
-
 # include "cub.h"
 
-void	init_minimap(t_game *game);
-int		init_display(t_display *display);
-void	init_player(t_player *player);
-void	init_map(t_map *map);
-void	init_color(t_color *color);
-void	init_init(t_game *game);
-
-
-
-
-#endif
+int	render_scene(t_game *game);
