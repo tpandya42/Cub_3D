@@ -6,11 +6,21 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:30:17 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/17 18:19:11 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/18 17:21:36 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
+
+void	init_key(t_input_key *key)
+{
+	key->forward = 0;
+	key->back = 0;
+	key->left = 0;
+	key->right = 0;
+	key->rot_left = 0;
+	key->rot_right = 0;
+}
 
 void	init_minimap(t_game *game)
 {
@@ -38,10 +48,17 @@ int	init_display(t_display *display)
 		return (1);
 	init_win(display);
 	display->win = NULL;
-	display->img = NULL;
-	display->addr = NULL;
-	display->bpp = 0;
-	display->line_len = 0;
-	display->endian = 0;
+	display->img = mlx_new_image(display->mlx, display->win_w, display->win_h);
+	if (!display->img)
+		return (1);
+	display->addr = mlx_get_data_addr(display->img,
+			&display->bpp,
+			&display->line_len,
+			&display->endian);
+	if (!display->addr)
+		return (1);
+	//display->bpp = 0;
+	//display->line_len = 0;
+	//display->endian = 0;
 	return (0);
 }

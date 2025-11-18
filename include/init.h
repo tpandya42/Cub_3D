@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:45:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/17 17:52:43 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/18 16:07:02 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "cub.h"
 
+void	init_key(t_input_key *key);
 void	init_minimap(t_game *game);
 int		init_display(t_display *display);
 void	init_player(t_player *player);

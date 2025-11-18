@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:01:44 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/17 17:41:30 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/18 17:53:41 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ void	init_player(t_player *player)
 {
 	player->ini_x = 0;
 	player->ini_y = 0;
-	player->x = 0;
-	player->y = 0;
+	player->x = 2.5;
+	player->y = 2.5;
 	player->dir_x = 0;
 	player->dir_y = 0;
 	player->plane_x = 0;
 	player->plane_y = 0;
-	player->rot_speed = 0;
-	player->move_speed = 0;
+	player->rot_speed = 0.05;
+	player->move_speed = 0.1;
 }
 
 void	init_texture(t_texture *texture)
@@ -68,5 +68,6 @@ void	init_init(t_game *game)
 	init_color(&game->floor);
 	init_color(&game->ceiling);
 	init_minimap(game);
+	init_key(&game->key);
 	game->flags = 0;
 }
