@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:09:53 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/14 18:23:39 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/19 07:36:40 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	clean_map(t_map *map)
 
 	i = 0;
 	if (!map || !map->map)
-		return;
+		return ;
 	while (i < map->rows)
 	{
 		free(map->map[i]);
@@ -31,7 +31,7 @@ void	clean_map(t_map *map)
 void	clean_textures(t_display *disp, t_texture *text)
 {
 	if (!disp || !disp->mlx || !text)
-		return;
+		return ;
 
 	if (text->north)
 		mlx_destroy_image(disp->mlx, text->north);
@@ -44,8 +44,8 @@ void	clean_textures(t_display *disp, t_texture *text)
 
 	text->north = NULL;
 	text->south = NULL;
-	text->east  = NULL;
-	text->west  = NULL;
+	text->east = NULL;
+	text->west = NULL;
 }
 
 void	clean_window(t_display *disp)
@@ -70,9 +70,10 @@ void	clean_mlx(t_display *disp)
 void	clean_exit(t_game *game, int status)
 {
 	clean_map(&game->map);
+	if (game->display.img)
+		mlx_destroy_image(game->display.mlx, game->display.img);//before window
 	clean_textures(&game->display, &game->textures);
 	clean_window(&game->display);
 	clean_mlx(&game->display);
-
 	exit(status);
 }
