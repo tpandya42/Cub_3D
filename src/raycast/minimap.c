@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:47:37 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/19 08:27:20 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/19 17:42:35 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,39 +22,6 @@ void	my_mlx_pixel_put(t_display *display, int x, int y, int color)
 	bpp_bytes = display->bpp / 8;
 	dst = display->addr + (y * display->line_len + x * bpp_bytes);
 	*(unsigned int *)dst = color;
-}
-
-void	draw_circle(t_display *disp, int cx, int cy, int r)
-{
-	int	x;
-	int	y;
-
-	y = -r;
-	while (y <= r)
-	{
-		x = -r;
-		while (x <= r)
-		{
-			if (x * x + y * y <= r * r)
-				my_mlx_pixel_put(disp, cx + x, cy + y, COLOR_PLAYER);
-			x++;
-		}
-		y++;
-	}
-}
-
-void	draw_player_minimap(t_game *game)
-{
-	int	px;//player position -> center of circle
-	int	py;
-	int	r;
-
-	r = 3;//fixed size for player in minimap
-	px = game->minimap.offset_x + 
-		(int)(game->player.x * game->minimap.tile_size);
-	py = game->minimap.offset_y
-		+ (int)(game->player.y * game->minimap.tile_size);
-	draw_circle(&game->display, px, py, r);
 }
 
 static void	draw_square(t_game *game, int x, int y, int size, int color)

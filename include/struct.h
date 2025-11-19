@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:51:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/19 08:28:29 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/19 18:11:25 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,19 @@ typedef struct s_player
 	double	rot_speed;
 	double	move_speed;
 }	t_player;
+
+typedef struct s_line
+{
+	int	x0;// starting X coordinate of the line
+	int	y0;// starting Y coordinate of the line
+	int	x1;// ending X coordinate of the line
+	int	y1;// ending Y coordinate of the line
+	int	dx;// absolute difference in X (x1 - x0)
+	int	dy;// absolute difference in Y (y1 - y0)
+	int	sx;// step direction in X (+1 or -1)
+	int	sy;// step direction in Y (+1 or -1)
+	int	err;//accumulated error term for Bresenham’s line algorithm
+}	t_line;
 
 typedef struct s_minimap
 {

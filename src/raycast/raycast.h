@@ -6,8 +6,13 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 08:40:24 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/13 08:40:57 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/19 18:23:40 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "debug.h"
+#ifndef RAYCAST_H
+# define RAYCAST_H
+
+# include "debug.h"
+
+#endif

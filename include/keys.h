@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 07:51:27 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/19 08:35:04 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/19 17:57:27 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,21 @@
 
 #  define KEY_ESC     53
 # else
-#  define KEY_W       XK_w
-#  define KEY_A       XK_a
-#  define KEY_S       XK_s
-#  define KEY_D       XK_d
+#  define KEY_W       119
+#  define KEY_A       97
+#  define KEY_S       115
+#  define KEY_D       100
 
-#  define KEY_Q        XK_q
-#  define KEY_E        XK_e
+#  define KEY_LEFT    65361
+#  define KEY_RIGHT   65363
+#  define KEY_UP      65362
+#  define KEY_DOWN    65364
 
-#  define KEY_LEFT    XK_Left
-#  define KEY_RIGHT   XK_Right
-#  define KEY_UP       XK_Up
-#  define KEY_DOWN     XK_Down
+#  define KEY_Q       113
+#  define KEY_E       101
 
-#  define KEY_ESC XK_Escape
+#  define KEY_ESC     65307
+
 # endif
 
 #endif
