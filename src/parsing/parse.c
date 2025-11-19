@@ -1,18 +1,16 @@
 #include "cub.h"
 #include "parsing.h"
 
-int	parse_map(t_game *game, char **argv)
+
+
+char	**parser(char **map, t_game *game)
 {
-	char	*path;
-	char	**map;
+			
+}
 
-	path = argv[1];
-	map = read_all(path, &game->map.total_lines);
-	if (!map)
+int	parse_map(t_game *game, char *path)
+{
+	if (read_parse(game, path))
 		return (1);
-
-	game->map.grid = map;
-	game->map.rows = game->map.total_lines;
-	/* Optionally compute cols as max line length */
 	return (0);
 }
