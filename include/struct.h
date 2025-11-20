@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:51:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/19 18:11:25 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/20 08:20:14 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,15 @@ typedef struct s_texture
 	int		height;
 }	t_texture;
 
+typedef struct s_minimap
+{
+	int tile_size;		// size of each cell
+	int width;			// width in pixels
+	int height;			// height in pixels
+	int offset_x;		// horizontal offset from the window
+	int offset_y;		// vertical offset from the window
+}	t_minimap;
+
 typedef struct s_input_key
 {
 	int	forward;
@@ -98,14 +107,20 @@ typedef struct s_line
 	int	err;//accumulated error term for Bresenham’s line algorithm
 }	t_line;
 
-typedef struct s_minimap
+typedef struct s_coords
 {
-	int tile_size;		// size of each cell
-	int width;			// width in pixels
-	int height;			// height in pixels
-	int offset_x;		// horizontal offset from the window
-	int offset_y;		// vertical offset from the window
-}	t_minimap;
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
+}	t_line_coord;
+
+typedef struct s_square 
+{
+	int	x_topleft;
+	int	y_topleft;
+	int	side_len;
+}	t_square;
 
 typedef struct s_display
 {

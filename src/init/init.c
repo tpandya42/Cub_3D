@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:01:44 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/18 17:53:41 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/20 07:38:37 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	init_init(t_game *game)
 	init_texture(&game->textures);
 	init_color(&game->floor);
 	init_color(&game->ceiling);
-	init_minimap(game);
+	//init_minimap(game);
 	init_key(&game->key);
 	game->flags = 0;
 }

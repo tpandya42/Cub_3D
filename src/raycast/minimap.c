@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:47:37 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/19 17:42:35 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/20 08:30:03 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,33 @@ void	my_mlx_pixel_put(t_display *display, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-static void	draw_square(t_game *game, int x, int y, int size, int color)
+void	draw_square(t_game *game, t_square square, int color)
 {
-	int	dx;//delta x
-	int	dy;//delta y
+	int	current_x;
+	int	current_y;
 
-	dy = 0;
-	while (dy < size)
+	current_y = 0;
+	while (current_y < square.side_len)
 	{
-		dx = 0;
-		while (dx < size)
+		current_x = 0;
+		while (current_x < square.side_len)
 		{
-			//mlx_pixel_put(game->display.mlx, game->display.win,
-			//	x + dx, y + dy, color);
-			my_mlx_pixel_put(&game->display, x + dx, y + dy, color);
-			dx++;
+			my_mlx_pixel_put(&game->display, square.x_topleft 
+				+ current_x, square.y_topleft + current_y, color);
+			current_x++;
 		}
-		dy++;
+		current_y++;
 	}
 }
 
 void	draw_minimap(t_game *game)
 {
-	int	row;
-	int	col;
-	int	color;
+	t_square	square;
+	int			row;
+	int			col;
+	int			color;
 
+	square.side_len = game->minimap.tile_size;
 	row = 0;
 	while (row < game->map.rows)
 	{
@@ -60,11 +61,9 @@ void	draw_minimap(t_game *game)
 				color = COLOR_WALL;
 			else
 				color = COLOR_FLOOR;
-			draw_square(game,
-				game->minimap.offset_x + col * game->minimap.tile_size,
-				game->minimap.offset_y + row * game->minimap.tile_size,
-				game->minimap.tile_size,
-				color);
+			square.x_topleft = game->minimap.offset_x + col * square.side_len;
+			square.y_topleft = game->minimap.offset_y + row * square.side_len;
+			draw_square(game, square, color);
 			col++;
 		}
 		row++;

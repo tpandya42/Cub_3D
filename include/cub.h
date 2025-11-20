@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:53:43 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/19 18:18:58 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/20 08:16:22 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 # include "init.h"
 # include "window.h"
 # include "utils.h"
-# include "display.h"
 # include "minimap.h"
+# include "minimap_utils.h"
 # include "player.h"
 # include "move.h"
 # include "rotation.h"

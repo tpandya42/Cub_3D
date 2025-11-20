@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:29:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/19 17:45:07 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/20 08:11:15 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(void)
 	//PARSING
 	init_init(&game);
 	fill_dummy(&game);
+	init_minimap(&game);
 	setup_ini_vect(&game.player, game.map.player_dir);
 	if (!create_win(&game.display))
 		return (1);
