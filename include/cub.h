@@ -8,7 +8,7 @@
 #include <sys/time.h>
 #include <stdbool.h>
 #include "../libft/libft.h"//do we need this? -> Tanmay? YES for utils
-#include "minilibx_stub.h"
+
 #include <X11/X.h>//do we need this? -> Tanmay?	 YES for keycodes
 #include <X11/keysym.h>//do we need this? -> Tanmay?  YES for keycodes
 
@@ -18,6 +18,7 @@
 # include "window.h"
 //# include "raycast.h"
 # include "utils.h"
+# include "parsing.h"
 
 //Bonus headers
 //# include "minimap_bonus.h"

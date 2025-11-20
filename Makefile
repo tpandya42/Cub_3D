@@ -29,6 +29,7 @@ SRC = src/main.c \
 	$(wildcard src/parsing/*.c) \
 	$(wildcard src/init/*.c) \
 	$(wildcard src/utils/*.c)
+
 OBJ_DIR = ./obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
@@ -56,8 +57,6 @@ $(LIBFT_LIB): $(LIBFT_DIR)/Makefile
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-
 
 # ************************************** #
 #              BONUS MODE                #

@@ -12,8 +12,6 @@
 
 #include "cub.h"
 
-
-
 int	init_display(t_display *display)
 {
 	display->win = NULL;

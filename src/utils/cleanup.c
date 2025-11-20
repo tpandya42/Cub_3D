@@ -18,7 +18,7 @@ void	clean_map(t_map *map)
 
 	i = 0;
 	if (!map || !map->grid)
-		return;
+		return ;
 	while (i < map->rows)
 	{
 		free(map->grid[i]);
@@ -27,5 +27,3 @@ void	clean_map(t_map *map)
 	free(map->grid);
 	map->grid = NULL;
 }
-
-
