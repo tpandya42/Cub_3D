@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:51:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/19 18:11:25 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/24 19:22:58 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,22 @@ typedef struct s_player
 	double	rot_speed;
 	double	move_speed;
 }	t_player;
+
+typedef struct s_ray
+{
+	double	dirx;
+	double	diry;
+	int		current_x;
+	int		current_y;
+	double	side_x;
+	double	side_y;
+	double	delta_x;
+	double	delta_y;
+	int		step_x;
+	int		step_y;
+	int		side;
+	double	wall_dist; 
+}	t_ray;
 
 typedef struct s_line
 {
