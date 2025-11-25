@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:38:05 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/25 08:52:55 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/25 17:30:13 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int	render_scene(t_game *game)
 	ft_memset(game->display.addr, 0, buffer_size);
 	handle_movement(game);
 	render_raycast(game);
-	draw_minimap(game);
-	draw_player_minimap(game);
-	draw_player_ray(game);//in progress
-	//handle_movement(game);
+	render_minimap(game);
+	//draw_minimap(game);//moved o render_minimap
+	//draw_player_minimap(game);//moved o render_minimap
+	//draw_player_ray(game);//moved o render_minimap
 	mlx_put_image_to_window(game->display.mlx, 
 		game->display.win, game->display.img, 0, 0);
 	return (0);

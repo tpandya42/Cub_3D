@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:02:31 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/25 08:58:28 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/25 17:24:38 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	cross_tile(t_game *game, t_ray *ray)
 /*
 * Step direction and initial side distances
 */
-static void	init_ray(t_player *player, t_ray *ray, int col)
+void	init_ray(t_player *player, t_ray *ray, int col)
 {
 	ray->current_x = (int)player->x;
 	ray->current_y = (int)player->y;

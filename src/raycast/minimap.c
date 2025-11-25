@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:47:37 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/19 17:42:35 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/25 16:33:50 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,11 @@ void	draw_minimap(t_game *game)
 	}
 }
 
+void	render_minimap(t_game *game)
+{
+	draw_minimap(game);
+	draw_player_minimap(game);
+	draw_player_ray(game);//in progress
+}
 
 

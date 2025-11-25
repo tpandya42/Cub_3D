@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 08:40:24 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/25 08:37:00 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/25 17:24:55 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "debug.h"
 
 void	raycast(t_game *game, int col);
+void	init_ray(t_player *player, t_ray *ray, int col);
+void	cross_tile(t_game *game, t_ray *ray);
 void	step_side(t_ray *ray, t_player *player);
 void	delta_dist(t_ray *ray);
 void	ray_direction(t_ray *ray, t_player *player, int col, int win_wid);
