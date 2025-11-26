@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:51:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/25 08:45:00 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/26 16:30:41 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,13 @@ typedef struct s_ray
 	int		side;
 	double	wall_dist; 
 }	t_ray;
+
+typedef struct s_wall
+{
+	int	wall_start;
+	int	wall_end;
+	int	col;
+}	t_wall;
 
 typedef struct s_line
 {
