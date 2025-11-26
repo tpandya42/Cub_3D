@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:02:31 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/25 18:16:34 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/26 08:53:15 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,12 @@ void	init_ray(t_player *player, t_ray *ray, int col)
 
 }
 
-void	raycast(t_game *game, int col)
+t_ray	raycast(t_game *game, int col)
 {
 	t_ray	ray;
 
 	init_ray(&game->player, &ray, col);
 	cross_tile(game, &ray);
-	wall_dist(&ray, &game->player);//perpendicular
+	wall_dist(&ray, &game->player);
+	return (ray);
 }

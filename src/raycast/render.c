@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:38:05 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/25 17:30:13 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/26 08:33:02 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 static void	render_raycast(t_game *game)
 {
-	int	col;
+	t_ray	ray;
+	int		col;
 
 	col = 0;//doesn't matter the player position
 	while (col < game->display.win_w)//to limit # of ray
 	{
-		raycast(game, col);
+		ray = raycast(game, col);
+		//render_wall(game, col, &ray);
 		col++;
 	}
 }
