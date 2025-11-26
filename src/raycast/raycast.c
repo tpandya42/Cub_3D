@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:02:31 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/25 17:24:38 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/25 18:16:34 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 /*
 * Finds perpendicular distance to the wall
 */
-//void	wall_dist(t_ray *ray, t_player *player)//CHEK THIS
-//{
-//	if (ray->side == 0) // vertical wall
-//		ray->wall_dist = (ray->current_x - player->x + (1 - ray->step_x) / 2) / ray->dirx;
-//	else // horizontal wall
-//		ray->wall_dist = (ray->current_y - player->y + (1 - ray->step_y) / 2) / ray->diry;
-//}
+void	wall_dist(t_ray *ray, t_player *player)//CHEK THIS
+{
+	if (ray->side == 0) // vertical wall
+		ray->wall_dist = (ray->current_x 
+				- player->x + (1 - ray->step_x) / 2) / ray->dirx;
+	else // horizontal wall
+		ray->wall_dist = (ray->current_y 
+				- player->y + (1 - ray->step_y) / 2) / ray->diry;
+}
 
 /*
 * To step the ray through the map until it hits a wall
@@ -73,5 +75,5 @@ void	raycast(t_game *game, int col)
 
 	init_ray(&game->player, &ray, col);
 	cross_tile(game, &ray);
-	//wall_dist(game, &ray);//perpendicular
+	wall_dist(&ray, &game->player);//perpendicular
 }
