@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:38:05 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/26 08:33:02 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/26 15:36:56 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	render_raycast(t_game *game)
 	while (col < game->display.win_w)//to limit # of ray
 	{
 		ray = raycast(game, col);
-		//render_wall(game, col, &ray);
+		render_wall(game, col, &ray);
 		col++;
 	}
 }
@@ -37,9 +37,6 @@ int	render_scene(t_game *game)
 	handle_movement(game);
 	render_raycast(game);
 	render_minimap(game);
-	//draw_minimap(game);//moved o render_minimap
-	//draw_player_minimap(game);//moved o render_minimap
-	//draw_player_ray(game);//moved o render_minimap
 	mlx_put_image_to_window(game->display.mlx, 
 		game->display.win, game->display.img, 0, 0);
 	return (0);

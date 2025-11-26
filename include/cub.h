@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:53:43 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/25 08:44:01 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/26 15:38:50 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 # include "rotation.h"
 # include "keys.h"
 # include "raycast.h"
+# include "render.h"
 
 //Bonus headers
 # include "minimap.h"
