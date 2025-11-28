@@ -6,21 +6,14 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:51:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 07:41:32 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/28 14:30:55 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
 
-# define WIN_WIDTH 1200 //check if all this macros we can move it to defines.h
-# define WIN_HEIGHT 800
-# define TILE_SIZE 64 //3d
-# define ALL_IDS (ID_NO|ID_SO|ID_WE|ID_EA|ID_F|ID_C)
-
 # include "cub.h"
-
-
 
 // DEFINING ENUMS
 typedef enum e_ids
@@ -59,7 +52,7 @@ typedef struct s_texture
 	char	*east;
 	int		width;
 	int		height;
-}	t_text;
+}	t_texture;
 
 typedef struct s_input_key
 {
@@ -101,6 +94,40 @@ typedef struct s_ray
 	double	wall_dist; 
 }	t_ray;
 
+typedef struct s_sampler//check
+{
+	int		tex_x;
+	double	tex_pos;
+	double	step;
+}	t_sampler;
+
+typedef struct s_wall
+{
+	int			wall_start;
+	int			wall_end;
+	int			col;
+	t_wall_data	*tex;
+}	t_wall;
+
+typedef struct s_wall_data
+{
+	void	*img_ptr;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+	int		width; 
+	int		height;
+}	t_wall_data;
+
+typedef struct s_render_tex
+{
+	t_wall_data	north;
+	t_wall_data	south;
+	t_wall_data	west;
+	t_wall_data	east;
+}	t_render_tex;
+
 typedef struct s_line
 {
 	int	x0;// starting X coordinate of the line
@@ -116,11 +143,11 @@ typedef struct s_line
 
 typedef struct s_minimap
 {
-	int	tile_size;		// size of each cell
-	int	width;			// width in pixels
-	int	height;			// height in pixels
-	int	offset_x;		// horizontal offset from the window
-	int	offset_y;		// vertical offset from the window
+	int	tile_size;
+	int	width;
+	int	height;
+	int	offset_x;
+	int	offset_y
 }	t_minimap;
 
 typedef struct s_display
@@ -138,15 +165,16 @@ typedef struct s_display
 
 typedef struct s_game
 {
-	t_display	display;
-	t_map		map;
-	t_player	player;
-	t_texture	text;
-	t_color		floor;
-	t_color		ceiling;
-	t_minimap	minimap;
-	t_input_key	key;
-	int			flags;
+	t_display		display;
+	t_map			map;
+	t_player		player;
+	t_texture		texture;
+	t_render_tex	rtex;
+	t_color			floor;
+	t_color			ceiling;
+	t_minimap		minimap;
+	t_input_key		key;
+	int				flags;
 }	t_game;
 
 #endif
