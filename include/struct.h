@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:51:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 14:30:55 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/28 15:16:17 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,14 +101,6 @@ typedef struct s_sampler//check
 	double	step;
 }	t_sampler;
 
-typedef struct s_wall
-{
-	int			wall_start;
-	int			wall_end;
-	int			col;
-	t_wall_data	*tex;
-}	t_wall;
-
 typedef struct s_wall_data
 {
 	void	*img_ptr;
@@ -127,6 +119,15 @@ typedef struct s_render_tex
 	t_wall_data	west;
 	t_wall_data	east;
 }	t_render_tex;
+
+
+typedef struct s_wall
+{
+	int			wall_start;
+	int			wall_end;
+	int			col;
+	t_wall_data	*tex;
+}	t_wall;
 
 typedef struct s_line
 {
@@ -147,7 +148,7 @@ typedef struct s_minimap
 	int	width;
 	int	height;
 	int	offset_x;
-	int	offset_y
+	int	offset_y;
 }	t_minimap;
 
 typedef struct s_display

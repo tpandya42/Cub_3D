@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:29:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 07:44:40 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/28 15:21:04 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 	//PARSING
 	init_init(&game);
 	fill_dummy(&game);
-	load_dummy_textures(&game);//when parsing this change for the load parser textures
+	load_dummy_text(&game);//when parsing this change for the load parser textures
 	setup_ini_vect(&game.player, game.map.player_dir);
 	if (!create_win(&game.display))
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:01:44 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/18 17:53:41 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/28 14:53:18 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ void	init_init(t_game *game)
 	init_display(&game->display);
 	init_map(&game->map);
 	init_player(&game->player);
-	init_texture(&game->textures);
+	init_texture(&game->texture);
+	init_render_tex(&game->rtex);
 	init_color(&game->floor);
 	init_color(&game->ceiling);
 	init_minimap(game);
