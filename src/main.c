@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/28 18:45:17 by albetanc          #+#    #+#             */
+/*   Updated: 2025/11/28 18:53:13 by albetanc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub.h"
+#include "dummy.h"//tmp
 
 static int	map_extension_checker(char *map)
 {
@@ -40,9 +53,18 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
-	verify(argc, argv);
-	//init_struct(&game);
-	//check_map(argv[1], &game);
-	//start_game(&game);
-	//exit_game(&game);
+	//verify(argc, argv);
+		init_init(&game);
+	fill_dummy(&game);//change after parse
+	load_dummy_text(&game);//when parsing this change for the load parser textures
+	setup_ini_vect(&game.player, game.map.player_dir);
+	if (!create_win(&game.display))
+		return (1);
+	mlx_loop_hook(game.display.mlx, render_scene, &game);
+	mlx_hook(game.display.win, 17, 0, close_win, &game);
+	mlx_hook(game.display.win, 2, 1L<<0, key_press, &game);
+	mlx_hook(game.display.win, 3, 1L<<1, key_release, &game);
+	DEBUG_LOG("Player position: (%.2f, %.2f)", game.player.x, game.player.y);
+	DEBUG_LOG("Window size: %dx%d", WIN_WIDTH, WIN_HEIGHT);
+	mlx_loop(game.display.mlx);
 }
