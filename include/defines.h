@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 08:28:02 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/25 08:55:22 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/28 14:02:32 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 # include "cub.h"
 
 //General
-
+# define WIN_WIDTH 1200 //check if all this macros we can move it to defines.h
+# define WIN_HEIGHT 800
+# define TILE_SIZE 64 //3d
+# define ALL_IDS (ID_NO|ID_SO|ID_WE|ID_EA|ID_F|ID_C)
 
 //Raycasting
 # define CAMERA_PLANE_X 0.66
