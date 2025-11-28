@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   minimap_utils.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 08:28:02 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 19:06:21 by albetanc         ###   ########.fr       */
+/*   Created: 2025/11/20 08:15:49 by albetanc          #+#    #+#             */
+/*   Updated: 2025/11/25 08:50:36 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef DEFINES_H
-# define DEFINES_H
+#ifndef MINIMAP_UTILS_H
+# define MINIMAP_UTILS_H
 
 # include "cub.h"
 
-//General
-# define WIN_WIDTH 1200 //check if all this macros we can move it to defines.h
-# define WIN_HEIGHT 800
-# define TILE_SIZE 64 //3d
-# define ALL_IDS (ID_NO|ID_SO|ID_WE|ID_EA|ID_F|ID_C)
-
-//Raycasting
-# define CAMERA_PLANE_X 0.3
-# define RAY_MINIMAP_LEN 3.0
+void	draw_line(t_display *d, t_line line, int color);
+void	put_pixel(t_display *d, int x, int y, int color);
 
 #endif

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 08:28:02 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 19:06:21 by albetanc         ###   ########.fr       */
+/*   Created: 2025/11/17 16:21:09 by albetanc          #+#    #+#             */
+/*   Updated: 2025/11/28 18:44:26 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef DEFINES_H
-# define DEFINES_H
+#ifndef RENDER_H
+# define RENDER_H
 
 # include "cub.h"
 
-//General
-# define WIN_WIDTH 1200 //check if all this macros we can move it to defines.h
-# define WIN_HEIGHT 800
-# define TILE_SIZE 64 //3d
-# define ALL_IDS (ID_NO|ID_SO|ID_WE|ID_EA|ID_F|ID_C)
+void	setup_initial_vectors(t_player *player, char ini_dir);
+int		render_scene(t_game *game);
+int		key_release(int keycode, void *param);
+int		key_press(int keycode, void *param);
 
-//Raycasting
-# define CAMERA_PLANE_X 0.3
-# define RAY_MINIMAP_LEN 3.0
+//render_wall.c
+void	render_wall(t_game *game, int col, t_ray *ray);
+
+//render_utils.c
+int		ceiling_color(t_game *game);
+int		floor_color(t_game *game);
+int		sample_texture(t_wall_data *tex, int x, int y);
 
 #endif

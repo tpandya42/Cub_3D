@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   raycast.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 08:28:02 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 19:06:21 by albetanc         ###   ########.fr       */
+/*   Created: 2025/11/13 08:40:24 by albetanc          #+#    #+#             */
+/*   Updated: 2025/11/26 08:33:18 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef RAYCAST_H
+# define RAYCAST_H
 
-#ifndef DEFINES_H
-# define DEFINES_H
+# include "debug.h"
 
-# include "cub.h"
-
-//General
-# define WIN_WIDTH 1200 //check if all this macros we can move it to defines.h
-# define WIN_HEIGHT 800
-# define TILE_SIZE 64 //3d
-# define ALL_IDS (ID_NO|ID_SO|ID_WE|ID_EA|ID_F|ID_C)
-
-//Raycasting
-# define CAMERA_PLANE_X 0.3
-# define RAY_MINIMAP_LEN 3.0
+t_ray	raycast(t_game *game, int col);
+void	init_ray(t_player *player, t_ray *ray, int col);
+void	cross_tile(t_game *game, t_ray *ray);
+void	wall_dist(t_ray *ray, t_player *player);
+void	step_side(t_ray *ray, t_player *player);
+void	delta_dist(t_ray *ray);
+void	ray_direction(t_ray *ray, t_player *player, int col, int win_wid);
 
 #endif

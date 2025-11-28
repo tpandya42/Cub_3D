@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   rotation.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 08:28:02 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 19:06:21 by albetanc         ###   ########.fr       */
+/*   Created: 2025/11/18 15:17:34 by albetanc          #+#    #+#             */
+/*   Updated: 2025/11/19 18:26:15 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef DEFINES_H
-# define DEFINES_H
+#ifndef ROTATION_H
+# define ROTATION_H
 
 # include "cub.h"
 
-//General
-# define WIN_WIDTH 1200 //check if all this macros we can move it to defines.h
-# define WIN_HEIGHT 800
-# define TILE_SIZE 64 //3d
-# define ALL_IDS (ID_NO|ID_SO|ID_WE|ID_EA|ID_F|ID_C)
-
-//Raycasting
-# define CAMERA_PLANE_X 0.3
-# define RAY_MINIMAP_LEN 3.0
+void	rotate_left(t_game *game);
+void	rotate_right(t_game *game);
 
 #endif

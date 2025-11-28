@@ -31,7 +31,33 @@ BONUS_FLAGS = -DBONUS_MODE=1 #check if works
 #               SOURCES                  #
 # ************************************** #
 SRC = src/main.c \
-      $(wildcard src/raycast/*.c)	#CHANGE FOR FILE NAMES!
+\
+src/init/init.c \
+src/init/init_utils.c \
+src/init/init_wall.c \
+\
+src/dummy/dummy.c \
+\
+src/movement/move.c \
+src/movement/rotation.c \
+\
+src/player/player.c \
+src/player/player_setup.c \
+\
+src/raycast/raycast.c \
+src/raycast/raycast_utils.c \
+\
+src/render/render.c \
+src/render/render_utils.c \
+src/render/render_wall.c \
+\
+src/minimap/minimap.c \
+src/minimap/minimap_utils.c \
+\
+src/utils/cleanup.c \
+src/utils/error.c \
+\
+src/window/window.c
 
 OBJ_DIR = ./obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
@@ -49,7 +75,7 @@ all: $(NAME)
 
 # Link object files and libft to create the executable and the graphic library
 $(NAME): $(OBJ) $(LIBFT_LIB) $(MLX_LIB)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_LIB) $(MLX_FLAGS) -o $@
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_LIB) $(MLX_LIB) $(MLX_FLAGS) -o $@
 
 # Rule to build libft if it doesn't exist
 $(LIBFT_LIB): $(LIBFT_DIR)/Makefile

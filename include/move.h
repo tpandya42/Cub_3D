@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   move.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 08:28:02 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 19:06:21 by albetanc         ###   ########.fr       */
+/*   Created: 2025/11/18 15:14:32 by albetanc          #+#    #+#             */
+/*   Updated: 2025/11/19 18:23:02 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef DEFINES_H
-# define DEFINES_H
+#ifndef MOVE_H
+# define MOVE_H
 
 # include "cub.h"
 
-//General
-# define WIN_WIDTH 1200 //check if all this macros we can move it to defines.h
-# define WIN_HEIGHT 800
-# define TILE_SIZE 64 //3d
-# define ALL_IDS (ID_NO|ID_SO|ID_WE|ID_EA|ID_F|ID_C)
-
-//Raycasting
-# define CAMERA_PLANE_X 0.3
-# define RAY_MINIMAP_LEN 3.0
+void	move_forward(t_game *game);
+void	move_back(t_game *game);
+void	move_left(t_game *game);
+void	move_right(t_game *game);
+void	handle_movement(t_game *game);
 
 #endif

@@ -1,3 +1,3 @@
 #include "cub.h"
 
-int	parse_map()
+//int	parse_map()

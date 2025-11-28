@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:45:17 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 18:53:13 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/28 18:59:38 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
+	(void) argc; //tmp
+	(void) argv;//tmp
 	//verify(argc, argv);
 		init_init(&game);
 	fill_dummy(&game);//change after parse
