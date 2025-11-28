@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:09:53 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/25 08:57:00 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/11/28 08:02:47 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	clean_textures(t_display *disp, t_texture *text)
 {
 	if (!disp || !disp->mlx || !text)
 		return ;
-
 	if (text->north)
 		mlx_destroy_image(disp->mlx, text->north);
 	if (text->south)
@@ -41,11 +40,11 @@ void	clean_textures(t_display *disp, t_texture *text)
 		mlx_destroy_image(disp->mlx, text->east);
 	if (text->west)
 		mlx_destroy_image(disp->mlx, text->west);
-
 	text->north = NULL;
 	text->south = NULL;
 	text->east = NULL;
 	text->west = NULL;
+	//ft_bzero(&game->texture, sizeof(game->texture));//check if needed include game
 }
 
 void	clean_window(t_display *disp)
