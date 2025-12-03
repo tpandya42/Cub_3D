@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:02:31 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/26 08:53:15 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/03 19:25:38 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	cross_tile(t_game *game, t_ray *ray)
 	while (hit == 0)
 	{
 	// Jump to next map tile in X or Y direction
-		if (ray->side_x < ray->side_y)
+		if (ray->side_x <= ray->side_y)
 		{
 			ray->side_x += ray->delta_x;  // move to next x-side
 			ray->current_x += ray->step_x; // move mapX
