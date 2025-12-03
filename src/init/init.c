@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:01:44 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 14:53:18 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/02 08:55:07 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	init_player(t_player *player)
 	player->dir_y = 0;
 	player->plane_x = 0;
 	player->plane_y = 0;
-	player->rot_speed = 0.05;
-	player->move_speed = 0.1;
+	player->rot_speed = ROT_SPEED;
+	player->move_speed = M_SPEED;
 }
 
 void	init_texture(t_texture *texture)

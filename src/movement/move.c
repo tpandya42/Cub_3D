@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 07:49:16 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/20 08:31:31 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/02 08:57:28 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,13 @@ void	move_forward(t_game *game)
 
 	nx = game->player.x + game->player.dir_x * game->player.move_speed;
 	ny = game->player.y + game->player.dir_y * game->player.move_speed;
-	if (game->map.map[(int)game->player.y][(int)nx] != '1')
+	//if (game->map.map[(int)game->player.y][(int)nx] != '1')
+	//	game->player.x = nx;
+	//if (game->map.map[(int)ny][(int)game->player.x] != '1')
+	//	game->player.y = ny;
+	if (game->map.map[(int)game->player.y][(int)(nx + game->player.dir_x * COLLI_DIST)] != '1')
 		game->player.x = nx;
-	if (game->map.map[(int)ny][(int)game->player.x] != '1')
+	if (game->map.map[(int)(ny + game->player.dir_y * COLLI_DIST)][(int)game->player.x] != '1')
 		game->player.y = ny;
 }
 
@@ -32,9 +36,13 @@ void	move_back(t_game *game)
 
 	nx = game->player.x - game->player.dir_x * game->player.move_speed;
 	ny = game->player.y - game->player.dir_y * game->player.move_speed;
-	if (game->map.map[(int)game->player.y][(int)nx] != '1')
+	//if (game->map.map[(int)game->player.y][(int)nx] != '1')
+	//	game->player.x = nx;
+	//if (game->map.map[(int)ny][(int)game->player.x] != '1')
+	//	game->player.y = ny;
+	if (game->map.map[(int)game->player.y][(int)(nx - game->player.dir_x * COLLI_DIST)] != '1') // <--- Fíjate en el signo menos
 		game->player.x = nx;
-	if (game->map.map[(int)ny][(int)game->player.x] != '1')
+	if (game->map.map[(int)(ny - game->player.dir_y * COLLI_DIST)][(int)game->player.x] != '1') // <--- Fíjate en el signo menos
 		game->player.y = ny;
 }
 
@@ -45,9 +53,13 @@ void	move_left(t_game *game)
 
 	nx = game->player.x - game->player.plane_x * game->player.move_speed;
 	ny = game->player.y - game->player.plane_y * game->player.move_speed;
-	if (game->map.map[(int)game->player.y][(int)nx] != '1')
+	//if (game->map.map[(int)game->player.y][(int)nx] != '1')
+	//	game->player.x = nx;
+	//if (game->map.map[(int)ny][(int)game->player.x] != '1')
+	//	game->player.y = ny;
+	if (game->map.map[(int)game->player.y][(int)(nx - game->player.plane_x * COLLI_DIST)] != '1')
 		game->player.x = nx;
-	if (game->map.map[(int)ny][(int)game->player.x] != '1')
+	if (game->map.map[(int)(ny - game->player.plane_y * COLLI_DIST)][(int)game->player.x] != '1')
 		game->player.y = ny;
 }
 
@@ -58,9 +70,13 @@ void	move_right(t_game *game)
 
 	nx = game->player.x + game->player.plane_x * game->player.move_speed;
 	ny = game->player.y + game->player.plane_y * game->player.move_speed;
-	if (game->map.map[(int)game->player.y][(int)nx] != '1')
+	//if (game->map.map[(int)game->player.y][(int)nx] != '1')
+	//	game->player.x = nx;
+	//if (game->map.map[(int)ny][(int)game->player.x] != '1')
+	//	game->player.y = ny;
+	if (game->map.map[(int)game->player.y][(int)(nx + game->player.plane_x * COLLI_DIST)] != '1')
 		game->player.x = nx;
-	if (game->map.map[(int)ny][(int)game->player.x] != '1')
+	if (game->map.map[(int)(ny + game->player.plane_y * COLLI_DIST)][(int)game->player.x] != '1')
 		game->player.y = ny;
 }
 
