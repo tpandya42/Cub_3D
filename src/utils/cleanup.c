@@ -17,20 +17,15 @@ void	clean_map(t_map *map)
 	int	i;
 
 	i = 0;
-<<<<<<< HEAD
-	if (!map || !map->map)
-=======
 	if (!map || !map->grid)
->>>>>>> tan_42
 		return ;
 	while (i < map->rows)
 	{
 		free(map->grid[i]);
 		i++;
 	}
-<<<<<<< HEAD
-	free(map->map);
-	map->map = NULL;
+	free(map->grid);
+	map->grid = NULL;
 }
 
 void	clean_textures(t_display *disp, t_texture *text)
@@ -49,7 +44,6 @@ void	clean_textures(t_display *disp, t_texture *text)
 	text->south = NULL;
 	text->east = NULL;
 	text->west = NULL;
-	//ft_bzero(&game->texture, sizeof(game->texture));//check if needed include game
 }
 
 void	clean_window(t_display *disp)
@@ -74,14 +68,10 @@ void	clean_mlx(t_display *disp)
 void	clean_exit(t_game *game, int status)
 {
 	if (game->display.img)
-		mlx_destroy_image(game->display.mlx, game->display.img);//before window
+		mlx_destroy_image(game->display.mlx, game->display.img);
 	clean_textures(&game->display, &game->texture);
 	clean_window(&game->display);
 	clean_mlx(&game->display);
 	clean_map(&game->map);
 	exit(status);
-=======
-	free(map->grid);
-	map->grid = NULL;
->>>>>>> tan_42
 }

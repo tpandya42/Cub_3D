@@ -1,6 +1,6 @@
 
 #include "cub.h"
-#include "dummy.h"//tmp
+#include "parsing.h"
 
 static int	map_extension_checker(char *map)
 {
@@ -42,13 +42,24 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
-
-	(void) argc; //tmp
-	(void) argv;//tmp
-	//verify(argc, argv);
-		init_struct(&game);
-	//fill_dummy(&game);//change after parse
-	//load_dummy_text(&game);//when parsing this change for the load parser textures
+	verify(argc, argv);
+	init_struct(&game);
+	if (parse_map(&game, argv[1]))
+	{
+		ft_printf("Error\nFailed to parse map\n");
+		return (1);
+	}
+	/* Set player starting position from parsed map data */
+	game.player.ini_x = game.map.player_x + 0.5;
+	game.player.ini_y = game.map.player_y + 0.5;
+	game.player.x = game.player.ini_x;
+	game.player.y = game.player.ini_y;
+	/* Load textures from parsed paths */
+	if (load_textures(&game))
+	{
+		ft_printf("Error\nFailed to load textures\n");
+		return (1);
+	}
 	setup_ini_vect(&game.player, game.map.player_dir);
 	if (!create_win(&game.display))
 		return (1);
@@ -59,29 +70,5 @@ int	main(int argc, char **argv)
 	DEBUG_LOG("Player position: (%.2f, %.2f)", game.player.x, game.player.y);
 	DEBUG_LOG("Window size: %dx%d", WIN_WIDTH, WIN_HEIGHT);
 	mlx_loop(game.display.mlx);
-
-	// verify(argc, argv);
-	// init_struct(&game);
-	// if (parse_map(&game, argv[1]))
-	// {
-	// 	ft_printf("Error\nFailed to parse map\n");
-	// 	return (1);
-	// }
-	// ft_printf("✓ Map parsed successfully!\n");
-	// ft_printf("  Textures:\n");
-	// ft_printf("    NO: %s\n", game.textures.north);
-	// ft_printf("    SO: %s\n", game.textures.south);
-	// ft_printf("    WE: %s\n", game.textures.west);
-	// ft_printf("    EA: %s\n", game.textures.east);
-	// ft_printf("  Colors:\n");
-	// ft_printf("    Floor: %d,%d,%d\n", game.floor.floor[0], game.floor.floor[1],
-	// 	game.floor.floor[2]);
-	// ft_printf("    Ceiling: %d,%d,%d\n", game.ceiling.ceiling[0],
-	// 	game.ceiling.ceiling[1], game.ceiling.ceiling[2]);
-	// ft_printf("  Map:\n");
-	// ft_printf("    Rows: %d, Cols: %d\n", game.map.rows, game.map.cols);
-	// ft_printf("    Player: (%d,%d) facing %c\n", game.map.player_x,
-	// 	game.map.player_y, game.map.player_dir);
-	// return (0);
-
+	return (0);
 }

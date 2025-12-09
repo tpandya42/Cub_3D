@@ -53,13 +53,13 @@ int	parse_texture_line(t_game *game, const char *line)
 	skip_whitespace(&p);
 	dest = NULL;
 	if (starts_with(p, "NO "))
-		dest = &game->textures.north;
+		dest = &game->texture.north;
 	else if (starts_with(p, "SO "))
-		dest = &game->textures.south;
+		dest = &game->texture.south;
 	else if (starts_with(p, "WE "))
-		dest = &game->textures.west;
+		dest = &game->texture.west;
 	else if (starts_with(p, "EA "))
-		dest = &game->textures.east;
+		dest = &game->texture.east;
 	else
 		return (0);
 	p += 3;

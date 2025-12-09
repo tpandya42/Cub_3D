@@ -56,7 +56,7 @@ void	draw_minimap(t_game *game)
 		col = 0;
 		while (col < game->map.cols)
 		{
-			if (game->map.map[row][col] == '1') 
+			if (game->map.grid[row][col] == '1') 
 				color = COLOR_WALL;
 			else
 				color = COLOR_FLOOR;

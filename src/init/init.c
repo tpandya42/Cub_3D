@@ -12,14 +12,17 @@
 
 #include "cub.h"
 
-int	init_display(t_display *display)
+int	zero_display(t_display *display)
 {
+	display->mlx = NULL;
 	display->win = NULL;
 	display->img = NULL;
 	display->addr = NULL;
 	display->bpp = 0;
 	display->line_len = 0;
 	display->endian = 0;
+	display->win_w = 0;
+	display->win_h = 0;
 	return (0);
 }
 
@@ -74,7 +77,7 @@ void	init_color(t_color *color)
 
 void	init_struct(t_game *game)
 {
-	init_display(&game->display);
+	zero_display(&game->display);
 	init_map(&game->map);
 	init_player(&game->player);
 	init_texture(&game->texture);
