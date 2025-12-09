@@ -7,12 +7,9 @@ NAME = cub3D
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-# --- LIBRARIES --
 LIBFT_DIR = ./libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
-# (minilibx removed for parsing-only workflow)
 
-# Uncomment these lines for macOS:
 # MLX_FLAGS   = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
 # Debug flags

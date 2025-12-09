@@ -63,7 +63,6 @@ static int	validate_map_enclosure(t_game *game)
 	int		len;
 
 	grid = game->map.grid;
-	/* Check first and last rows: must be all walls/spaces */
 	c = 0;
 	while (grid[0][c])
 	{
@@ -79,7 +78,6 @@ static int	validate_map_enclosure(t_game *game)
 			return (print_error("Error\nMap not enclosed (bottom row)"), 0);
 		c++;
 	}
-	/* Check each row: first/last char must be wall/space; any '0' adjacent to space is invalid */
 	r = 0;
 	while (r < game->map.rows)
 	{
@@ -91,7 +89,6 @@ static int	validate_map_enclosure(t_game *game)
 		r++;
 	}
 	/* TODO: implement flood-fill or detailed adjacency check for interior '0' cells */
-	/* For now, basic edge validation is done; you can extend this */
 	return (1);
 }
 
