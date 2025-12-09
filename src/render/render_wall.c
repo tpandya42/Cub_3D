@@ -6,36 +6,23 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 15:03:16 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 15:14:13 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/03 19:36:52 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-double ft_floor(double x)
-{
-    // Convertimos a un entero largo (long long) para truncar la parte decimal.
-    long long truncated_int = (long long)x;
 
-    // Caso 1: Si el número es positivo o un entero (e.g., 4.8 -> 4.0; 5.0 -> 5.0).
-    // Para positivos, la conversión a (long long) ya realiza el floor.
-    if (x >= 0.0)
-    {
-        return ((double)truncated_int);
-    }
-    
-    // Caso 2: Si el número es negativo y NO es un entero (e.g., -2.1).
-    // La conversión a (long long) da -2, pero floor(-2.1) debe ser -3.0.
-    // Comprobamos si el número original (x) es diferente de su parte entera truncada.
-    else if ((double)truncated_int != x)
-    {
-        return ((double)(truncated_int - 1));
-    }
-    
-    // Caso 3: Si el número es negativo y ya es un entero (e.g., -5.0 -> -5.0).
-    else
-    {
-        return ((double)truncated_int);
-    }
+double	ft_floor(double x)
+{
+	long long	truncated_int;
+
+	truncated_int = (long long)x;
+	if (x >= 0.0)
+		return ((double)truncated_int);
+	else if ((double)truncated_int != x)
+		return ((double)(truncated_int - 1));
+	else
+		return ((double)truncated_int);
 }
 
 void	get_wall_sampler(t_sampler *sam, t_game *game, t_ray *ray, t_wall wall)//new
@@ -49,12 +36,12 @@ void	get_wall_sampler(t_sampler *sam, t_game *game, t_ray *ray, t_wall wall)//ne
 		hit = game->player.x + ray->wall_dist * ray->dirx;
 	hit -= ft_floor(hit);
 	sam->tex_x = (int)(hit * wall.tex->width);
-	if ((ray->side == 0 && ray->step_x > 0) ||
-		(ray->side == 1 && ray->step_y < 0))
+	if ((ray->side == 0 && ray->step_x > 0)
+		|| (ray->side == 1 && ray->step_y < 0))
 		sam->tex_x = wall.tex->width - sam->tex_x - 1;
 	sam->step = (double)wall.tex->height / (wall.wall_end - wall.wall_start);
-	sam->tex_pos = (wall.wall_start - game->display.win_h / 2 +
-		(wall.wall_end - wall.wall_start) / 2) * sam->step;
+	sam->tex_pos = (wall.wall_start - game->display.win_h / 2 
+			+ (wall.wall_end - wall.wall_start) / 2) * sam->step;
 }
 
 //int	get_wall_face(t_ray *ray)
