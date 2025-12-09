@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:02:31 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/03 19:25:38 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/08 18:00:48 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@
 */
 void	wall_dist(t_ray *ray, t_player *player)//CHEK THIS
 {
-	if (ray->side == 0) // vertical wall
-		ray->wall_dist = (ray->current_x 
+	if (ray->side == 0) // vertical wall (E/W)
+		ray->wall_dist = ((double)ray->current_x //included casting
 				- player->x + (1 - ray->step_x) / 2) / ray->dirx;
-	else // horizontal wall
+	else // horizontal wall(N/S)
 		ray->wall_dist = (ray->current_y 
 				- player->y + (1 - ray->step_y) / 2) / ray->diry;
+	if (ray->wall_dist < 0.1)
+		ray->wall_dist = 0.1;
 }
 
 /*
@@ -36,7 +38,7 @@ void	cross_tile(t_game *game, t_ray *ray)
 	while (hit == 0)
 	{
 	// Jump to next map tile in X or Y direction
-		if (ray->side_x <= ray->side_y)
+		if (ray->side_x < ray->side_y)
 		{
 			ray->side_x += ray->delta_x;  // move to next x-side
 			ray->current_x += ray->step_x; // move mapX
@@ -76,5 +78,10 @@ t_ray	raycast(t_game *game, int col)
 	init_ray(&game->player, &ray, col);
 	cross_tile(game, &ray);
 	wall_dist(&ray, &game->player);
+	if (ray.side == 0)
+		ray.hit = game->player.y + ray.wall_dist * ray.diry;
+	else
+		ray.hit = game->player.x + ray.wall_dist * ray.dirx;
+	ray.hit -= floor(ray.hit);
 	return (ray);
 }

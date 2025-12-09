@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/28 18:45:17 by albetanc          #+#    #+#             */
+/*   Updated: 2025/12/08 15:41:16 by albetanc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+>>>>>>> 14ccaea (in process I haven' pull)
 
 #include "cub.h"
 #include "dummy.h"//tmp
@@ -46,9 +60,9 @@ int	main(int argc, char **argv)
 	(void) argc; //tmp
 	(void) argv;//tmp
 	//verify(argc, argv);
-		init_struct(&game);
-	//fill_dummy(&game);//change after parse
-	//load_dummy_text(&game);//when parsing this change for the load parser textures
+	init_init(&game);
+	fill_dummy(&game);//change after parse
+	load_dummy_text(&game);//when parsing this change for the load parser textures
 	setup_ini_vect(&game.player, game.map.player_dir);
 	if (!create_win(&game.display))
 		return (1);

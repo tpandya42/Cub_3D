@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 07:51:27 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/19 17:57:27 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/08 17:19:22 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@
 #  define KEY_A       97
 #  define KEY_S       115
 #  define KEY_D       100
+ 
+ #  define KEY_P       112//tmp debbug
 
 #  define KEY_LEFT    65361
 #  define KEY_RIGHT   65363

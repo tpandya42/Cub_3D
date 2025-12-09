@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:51:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 15:16:17 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/09 18:16:15 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,11 @@ typedef struct s_ray
 	int		step_x;
 	int		step_y;
 	int		side;
-	double	wall_dist; 
+	double	wall_dist;
+	double	hit;//new
 }	t_ray;
 
-typedef struct s_sampler//check
+typedef struct s_sampler
 {
 	int		tex_x;
 	double	tex_pos;
