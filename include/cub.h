@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #ifndef CUB_H
 # define CUB_H
 
@@ -25,6 +26,8 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <math.h>
+
+
 
 // Own headers
 # include "struct.h"
@@ -43,9 +46,13 @@
 # include "render.h"
 
 //Bonus headers
-# include "minimap.h"
+//# include "raycast.h"
+# include "parsing.h"
+
+//Bonus headers
+//# include "minimap_bonus.h"
 
 //Debug headers
-# include "debug.h"
+//# include "debug.h"
 
 #endif
