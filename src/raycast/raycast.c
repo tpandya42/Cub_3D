@@ -26,6 +26,18 @@ void	wall_dist(t_ray *ray, t_player *player)//CHEK THIS
 }
 
 /*
+* Check if position is a wall (includes bounds check)
+*/
+static int	is_wall(t_game *game, int x, int y)
+{
+	if (x < 0 || y < 0 || x >= game->map.cols || y >= game->map.rows)
+		return (1);
+	if (game->map.grid[y][x] == '1' || game->map.grid[y][x] == ' ')
+		return (1);
+	return (0);
+}
+
+/*
 * To step the ray through the map until it hits a wall
 */
 void	cross_tile(t_game *game, t_ray *ray)
@@ -35,21 +47,19 @@ void	cross_tile(t_game *game, t_ray *ray)
 	hit = 0;
 	while (hit == 0)
 	{
-	// Jump to next map tile in X or Y direction
 		if (ray->side_x <= ray->side_y)
 		{
-			ray->side_x += ray->delta_x;  // move to next x-side
-			ray->current_x += ray->step_x; // move mapX
-			ray->side = 0; // hit was on a vertical side
+			ray->side_x += ray->delta_x;
+			ray->current_x += ray->step_x;
+			ray->side = 0;
 		}
 		else
 		{
-			ray->side_y += ray->delta_y;  // move to next y-side
-			ray->current_y += ray->step_y; // move mapY
-			ray->side = 1; // hit was on a horizontal side
+			ray->side_y += ray->delta_y;
+			ray->current_y += ray->step_y;
+			ray->side = 1;
 		}
-		// Check if ray has hit a wall
-		if (game->map.grid[ray->current_y][ray->current_x] == '1')
+		if (is_wall(game, ray->current_x, ray->current_y))
 			hit = 1;
 	}
 }

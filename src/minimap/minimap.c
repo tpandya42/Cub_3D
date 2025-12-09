@@ -56,8 +56,10 @@ void	draw_minimap(t_game *game)
 		col = 0;
 		while (col < game->map.cols)
 		{
-			if (game->map.grid[row][col] == '1') 
+			if (game->map.grid[row][col] == '1')
 				color = COLOR_WALL;
+			else if (game->map.grid[row][col] == ' ')
+				color = 0x202020;
 			else
 				color = COLOR_FLOOR;
 			draw_square(game,

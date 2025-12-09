@@ -12,20 +12,29 @@
 
 #include "cub.h"
 
+static int	is_blocked(t_game *game, int x, int y)
+{
+	if (x < 0 || y < 0 || x >= game->map.cols || y >= game->map.rows)
+		return (1);
+	if (game->map.grid[y][x] == '1' || game->map.grid[y][x] == ' ')
+		return (1);
+	return (0);
+}
+
 void	move_forward(t_game *game)
 {
 	double	nx;
 	double	ny;
+	int		check_x;
+	int		check_y;
 
 	nx = game->player.x + game->player.dir_x * game->player.move_speed;
 	ny = game->player.y + game->player.dir_y * game->player.move_speed;
-	//if (game->map.grid[(int)game->player.y][(int)nx] != '1')
-	//	game->player.x = nx;
-	//if (game->map.grid[(int)ny][(int)game->player.x] != '1')
-	//	game->player.y = ny;
-	if (game->map.grid[(int)game->player.y][(int)(nx + game->player.dir_x * COLLI_DIST)] != '1')
+	check_x = (int)(nx + game->player.dir_x * COLLI_DIST);
+	check_y = (int)(ny + game->player.dir_y * COLLI_DIST);
+	if (!is_blocked(game, check_x, (int)game->player.y))
 		game->player.x = nx;
-	if (game->map.grid[(int)(ny + game->player.dir_y * COLLI_DIST)][(int)game->player.x] != '1')
+	if (!is_blocked(game, (int)game->player.x, check_y))
 		game->player.y = ny;
 }
 
@@ -33,16 +42,16 @@ void	move_back(t_game *game)
 {
 	double	nx;
 	double	ny;
+	int		check_x;
+	int		check_y;
 
 	nx = game->player.x - game->player.dir_x * game->player.move_speed;
 	ny = game->player.y - game->player.dir_y * game->player.move_speed;
-	//if (game->map.grid[(int)game->player.y][(int)nx] != '1')
-	//	game->player.x = nx;
-	//if (game->map.grid[(int)ny][(int)game->player.x] != '1')
-	//	game->player.y = ny;
-	if (game->map.grid[(int)game->player.y][(int)(nx - game->player.dir_x * COLLI_DIST)] != '1') // <--- Fíjate en el signo menos
+	check_x = (int)(nx - game->player.dir_x * COLLI_DIST);
+	check_y = (int)(ny - game->player.dir_y * COLLI_DIST);
+	if (!is_blocked(game, check_x, (int)game->player.y))
 		game->player.x = nx;
-	if (game->map.grid[(int)(ny - game->player.dir_y * COLLI_DIST)][(int)game->player.x] != '1') // <--- Fíjate en el signo menos
+	if (!is_blocked(game, (int)game->player.x, check_y))
 		game->player.y = ny;
 }
 
@@ -50,16 +59,16 @@ void	move_left(t_game *game)
 {
 	double	nx;
 	double	ny;
+	int		check_x;
+	int		check_y;
 
 	nx = game->player.x - game->player.plane_x * game->player.move_speed;
 	ny = game->player.y - game->player.plane_y * game->player.move_speed;
-	//if (game->map.grid[(int)game->player.y][(int)nx] != '1')
-	//	game->player.x = nx;
-	//if (game->map.grid[(int)ny][(int)game->player.x] != '1')
-	//	game->player.y = ny;
-	if (game->map.grid[(int)game->player.y][(int)(nx - game->player.plane_x * COLLI_DIST)] != '1')
+	check_x = (int)(nx - game->player.plane_x * COLLI_DIST);
+	check_y = (int)(ny - game->player.plane_y * COLLI_DIST);
+	if (!is_blocked(game, check_x, (int)game->player.y))
 		game->player.x = nx;
-	if (game->map.grid[(int)(ny - game->player.plane_y * COLLI_DIST)][(int)game->player.x] != '1')
+	if (!is_blocked(game, (int)game->player.x, check_y))
 		game->player.y = ny;
 }
 
@@ -67,16 +76,16 @@ void	move_right(t_game *game)
 {
 	double	nx;
 	double	ny;
+	int		check_x;
+	int		check_y;
 
 	nx = game->player.x + game->player.plane_x * game->player.move_speed;
 	ny = game->player.y + game->player.plane_y * game->player.move_speed;
-	//if (game->map.grid[(int)game->player.y][(int)nx] != '1')
-	//	game->player.x = nx;
-	//if (game->map.grid[(int)ny][(int)game->player.x] != '1')
-	//	game->player.y = ny;
-	if (game->map.grid[(int)game->player.y][(int)(nx + game->player.plane_x * COLLI_DIST)] != '1')
+	check_x = (int)(nx + game->player.plane_x * COLLI_DIST);
+	check_y = (int)(ny + game->player.plane_y * COLLI_DIST);
+	if (!is_blocked(game, check_x, (int)game->player.y))
 		game->player.x = nx;
-	if (game->map.grid[(int)(ny + game->player.plane_y * COLLI_DIST)][(int)game->player.x] != '1')
+	if (!is_blocked(game, (int)game->player.x, check_y))
 		game->player.y = ny;
 }
 

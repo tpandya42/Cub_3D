@@ -22,6 +22,15 @@ int		parse_rgb(const char *str, int rgb[3]);
 int		parse_color_line(t_game *game, const char *line);
 int		is_map_char(char c);
 int		is_map_line(const char *s);
-int		parse_header_lines(t_game *game, char **lines, int total, int *map_start);
+int		parse_header_lines(t_game *game, char **lines, int total, int *mstart);
+
+/* ========== MAP VALIDATION (validate_map.c) ========== */
+int		validate_map_closed(t_game *game);
+int		validate_map_chars(t_game *game);
+int		is_player_char(char c);
+int		validate_player_not_on_edge(t_game *game);
+
+/* ========== TEXTURE VALIDATION (validate_texture.c) ========== */
+int		validate_textures(t_game *game);
 
 #endif

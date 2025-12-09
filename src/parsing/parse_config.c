@@ -48,60 +48,97 @@ static int	find_player_position(t_game *game)
 	return (1);
 }
 
-/* ========== MAP VALIDATION (enclosure check) ========== */
+/* ========== MAIN PROCESSING FUNCTION ========== */
 
-static int	is_wall_or_space(char c)
+static int	get_max_width(char **lines, int map_start, int rows)
 {
-	return (c == '1' || c == ' ');
-}
+	int	r;
+	int	len;
+	int	cmax;
 
-static int	validate_map_enclosure(t_game *game)
-{
-	int		r;
-	int		c;
-	char	**grid;
-	int		len;
-
-	grid = game->map.grid;
-	c = 0;
-	while (grid[0][c])
-	{
-		if (grid[0][c] != '1' && grid[0][c] != ' ')
-			return (print_error("Error\nMap not enclosed (top row)"), 0);
-		c++;
-	}
-	c = 0;
-	while (grid[game->map.rows - 1][c])
-	{
-		if (grid[game->map.rows - 1][c] != '1' && grid[game->map.rows
-			- 1][c] != ' ')
-			return (print_error("Error\nMap not enclosed (bottom row)"), 0);
-		c++;
-	}
+	cmax = 0;
 	r = 0;
-	while (r < game->map.rows)
+	while (r < rows)
 	{
-		len = ft_strlen(grid[r]);
-		if (len > 0 && !is_wall_or_space(grid[r][0]))
-			return (print_error("Error\nMap not enclosed (left edge)"), 0);
-		if (len > 0 && !is_wall_or_space(grid[r][len - 1]))
-			return (print_error("Error\nMap not enclosed (right edge)"), 0);
+		len = ft_strlen(lines[map_start + r]);
+		if (len > 0 && lines[map_start + r][len - 1] == '\n')
+			len--;
+		if (len > cmax)
+			cmax = len;
 		r++;
 	}
-	/* TODO: implement flood-fill or detailed adjacency check for interior '0' cells */
+	return (cmax);
+}
+
+static char	*create_padded_line(const char *src, int width)
+{
+	char	*line;
+	int		src_len;
+	int		i;
+
+	src_len = ft_strlen(src);
+	if (src_len > 0 && src[src_len - 1] == '\n')
+		src_len--;
+	line = malloc(width + 1);
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (i < src_len && i < width)
+	{
+		line[i] = src[i];
+		i++;
+	}
+	while (i < width)
+	{
+		line[i] = ' ';
+		i++;
+	}
+	line[width] = '\0';
+	return (line);
+}
+
+static int	copy_map_grid(t_game *game, char **lines, int map_start, int rows)
+{
+	int	r;
+	int	width;
+
+	width = get_max_width(lines, map_start, rows);
+	game->map.grid = ft_calloc(rows + 1, sizeof(char *));
+	if (!game->map.grid)
+		return (0);
+	r = 0;
+	while (r < rows)
+	{
+		game->map.grid[r] = create_padded_line(lines[map_start + r], width);
+		if (!game->map.grid[r])
+			return (0);
+		r++;
+	}
+	game->map.rows = rows;
+	game->map.cols = width;
 	return (1);
 }
 
-/* ========== MAIN PROCESSING FUNCTION ========== */
+static int	run_validations(t_game *game)
+{
+	if (!validate_textures(game))
+		return (0);
+	if (!validate_map_chars(game))
+		return (0);
+	if (!find_player_position(game))
+		return (0);
+	if (!validate_player_not_on_edge(game))
+		return (0);
+	if (!validate_map_closed(game))
+		return (0);
+	return (1);
+}
 
 int	process_map_lines(t_game *game, char **lines, int total_lines)
 {
 	int	map_start;
 	int	ids_found;
-	int	r;
 	int	rows;
-	int	cmax;
-	int	l;
 
 	init_texture(&game->texture);
 	init_color(&game->floor);
@@ -111,48 +148,15 @@ int	process_map_lines(t_game *game, char **lines, int total_lines)
 		return (1);
 	if (map_start == -1)
 		return (print_error("Error\nNo map found in file"), 1);
-	/* Validate that all 6 required identifiers are present */
 	if (!game->texture.north || !game->texture.south || !game->texture.west
 		|| !game->texture.east)
 		return (print_error("Error\nMissing texture identifiers"), 1);
-	/* Copy map lines into game->map.grid */
 	rows = total_lines - map_start;
-	game->map.grid = ft_calloc(rows + 1, sizeof(char *));
-	if (!game->map.grid)
+	if (rows < 3)
+		return (print_error("Error\nMap is too small"), 1);
+	if (!copy_map_grid(game, lines, map_start, rows))
+		return (print_error("Error\nMemory allocation failed"), 1);
+	if (!run_validations(game))
 		return (1);
-	r = 0;
-	while (r < rows)
-	{
-		game->map.grid[r] = ft_strdup(lines[map_start + r]);
-		r++;
-	}
-	game->map.rows = rows;
-	/* Compute cols as maximum line length */
-	{
-		cmax = 0;
-		r = 0;
-		while (r < rows)
-		{
-			l = ft_strlen(game->map.grid[r]);
-			if (l > cmax)
-				cmax = l;
-			r++;
-		}
-		game->map.cols = cmax;
-	}
-	/* Validate player position */
-	if (!find_player_position(game))
-		return (1);
-	/* Validate map enclosure */
-	if (!validate_map_enclosure(game))
-		return (1);
-	/* Cleanup original lines */
-	r = 0;
-	while (r < total_lines)
-	{
-		free(lines[r]);
-		r++;
-	}
-	free(lines);
 	return (0);
 }
