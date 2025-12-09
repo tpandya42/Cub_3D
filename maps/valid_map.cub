@@ -1,7 +1,7 @@
-NO ./minilibx-linux/test/open.xpm
-SO ./minilibx-linux/test/open.xpm
-WE ./minilibx-linux/test/open.xpm
-EA ./minilibx-linux/test/open.xpm
+NO ./textures/sweet_no.xpm
+SO ./textures/sweet_so.xpm
+WE ./textures/sweet_we.xpm
+EA ./textures/sweet_ea.xpm
 
 
 F 220,100,0

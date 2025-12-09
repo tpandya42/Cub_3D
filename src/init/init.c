@@ -84,7 +84,6 @@ void	init_struct(t_game *game)
 	init_render_tex(&game->rtex);
 	init_color(&game->floor);
 	init_color(&game->ceiling);
-	init_minimap(game);
 	init_key(&game->key);
 	game->flags = 0;
 }
