@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"cub.h": "c",
+		"random": "c",
+		"ranges": "c"
+	}
+}

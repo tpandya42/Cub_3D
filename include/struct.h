@@ -30,11 +30,13 @@ typedef enum e_ids
 // DEFINING STRUCTS
 typedef struct s_map
 {
-	char	**map;
+	char	**grid;
+	char	*path;
 	int		rows;
 	int		cols;
-	int		player_x;
-	int		player_y;
+	int	total_lines;
+	int	player_x;
+	int	player_y;
 	char	player_dir;
 }	t_map;
 

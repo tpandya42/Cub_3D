@@ -17,13 +17,18 @@ void	clean_map(t_map *map)
 	int	i;
 
 	i = 0;
+<<<<<<< HEAD
 	if (!map || !map->map)
+=======
+	if (!map || !map->grid)
+>>>>>>> tan_42
 		return ;
 	while (i < map->rows)
 	{
-		free(map->map[i]);
+		free(map->grid[i]);
 		i++;
 	}
+<<<<<<< HEAD
 	free(map->map);
 	map->map = NULL;
 }
@@ -75,4 +80,8 @@ void	clean_exit(t_game *game, int status)
 	clean_mlx(&game->display);
 	clean_map(&game->map);
 	exit(status);
+=======
+	free(map->grid);
+	map->grid = NULL;
+>>>>>>> tan_42
 }

@@ -12,9 +12,22 @@
 
 #include "cub.h"
 
+int	init_display(t_display *display)
+{
+	display->win = NULL;
+	display->img = NULL;
+	display->addr = NULL;
+	display->bpp = 0;
+	display->line_len = 0;
+	display->endian = 0;
+	return (0);
+}
+
 void	init_map(t_map *map)
 {
-	map->map = NULL;
+	map->grid = NULL;
+	map->path = NULL;
+	map->total_lines = 0;
 	map->rows = 0;
 	map->cols = 0;
 	map->player_x = 0;
@@ -59,7 +72,7 @@ void	init_color(t_color *color)
 	}
 }
 
-void	init_init(t_game *game)
+void	init_struct(t_game *game)
 {
 	init_display(&game->display);
 	init_map(&game->map);
