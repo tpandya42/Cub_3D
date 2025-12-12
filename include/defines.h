@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 08:28:02 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/02 09:01:18 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/08 16:52:53 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # define WIN_HEIGHT 800
 # define TILE_SIZE 64 //3d
 # define M_SPEED 0.05
-# define ROT_SPEED 0.05
-# define COLLI_DIST 0.2
+# define ROT_SPEED 0.002
+# define COLLI_DIST 0.5
 # define ALL_IDS (ID_NO|ID_SO|ID_WE|ID_EA|ID_F|ID_C)
 
 //Raycasting

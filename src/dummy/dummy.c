@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:39:29 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 19:12:55 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/12 20:07:54 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	load_dummy_text(t_game *game)
 	game->texture.south = "textures/sweet_so.xpm";
 	game->texture.west = "textures/sweet_we.xpm";
 	game->texture.east = "textures/sweet_ea.xpm";
-
 	load_text(game, &game->rtex.north, game->texture.north);
 	load_text(game, &game->rtex.south, game->texture.south);
 	load_text(game, &game->rtex.west, game->texture.west);
