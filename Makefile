@@ -10,7 +10,10 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
-# MLX_FLAGS   = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
+# Minilibx
+MLX_DIR = ./minilibx-linux
+MLX_LIB = $(MLX_DIR)/libmlx.a
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lz
 
 # Debug flags
 DEBUG_FLAGS = -g -DDEBUG_MODE=1
@@ -27,8 +30,6 @@ SRC = src/main.c \
 src/init/init.c \
 src/init/init_utils.c \
 src/init/init_wall.c \
-\
-src/dummy/dummy.c \
 \
 src/movement/move.c \
 src/movement/rotation.c \
@@ -48,11 +49,10 @@ src/minimap/minimap_utils.c \
 \
 src/utils/cleanup.c \
 src/utils/error.c \
+src/utils/textures.c \
 \
 src/window/window.c \
-$(wildcard src/parsing/*.c) \
-$(wildcard src/init/*.c) \
-$(wildcard src/utils/*.c)
+$(wildcard src/parsing/*.c)
 
 OBJ_DIR = ./obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
@@ -76,7 +76,9 @@ $(NAME): $(OBJ) $(LIBFT_LIB) $(MLX_LIB)
 $(LIBFT_LIB): $(LIBFT_DIR)/Makefile
 	$(MAKE)	-C $(LIBFT_DIR)
 
-# (minilibx removed for parsing-only workflow)
+# Rule to build minilibx
+$(MLX_LIB):
+	$(MAKE) -C $(MLX_DIR)
 
 #The obj dir will be created if it doesn't exist
 $(OBJ_DIR)/%.o: %.c

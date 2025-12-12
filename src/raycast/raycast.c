@@ -51,7 +51,7 @@ void	cross_tile(t_game *game, t_ray *ray)
 			ray->side = 1; // hit was on a horizontal side
 		}
 		// Check if ray has hit a wall
-		if (game->map.map[ray->current_y][ray->current_x] == '1')
+		if (game->map.grid[ray->current_y][ray->current_x] == '1')
 			hit = 1;
 	}
 }

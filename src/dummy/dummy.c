@@ -24,12 +24,18 @@ void	load_text(t_game *game, t_wall_data *wall_data, char *path)
 			&wall_data->line_len, &wall_data->endian);
 }
 
+/* Load textures from parsed paths (game->texture.north/south/west/east) */
+void	load_textures(t_game *game)
+{
+	load_text(game, &game->rtex.north, game->texture.north);
+	load_text(game, &game->rtex.south, game->texture.south);
+	load_text(game, &game->rtex.west, game->texture.west);
+	load_text(game, &game->rtex.east, game->texture.east);
+}
+
+/* Legacy function - kept for testing with dummy data */
 void	load_dummy_text(t_game *game)
 {
-	//game->texture.north = "textures/dark_north.xpm";
-	//game->texture.south = "textures/dark_south.xpm";
-	//game->texture.west = "textures/dark_west.xpm";
-	//game->texture.east = "textures/dark_east.xpm";
 	game->texture.north = "textures/sweet_no.xpm";
 	game->texture.south = "textures/sweet_so.xpm";
 	game->texture.west = "textures/sweet_we.xpm";
@@ -69,7 +75,7 @@ void	dummy_map(t_game *game)
 	};
 	game->map.rows = 10;
 	game->map.cols = 10;
-	game->map.map = dummy_map;
+	game->map.grid = dummy_map;
 }
 
 void	dummy_player(t_game *game)

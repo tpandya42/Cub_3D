@@ -103,7 +103,7 @@ int	process_map_lines(t_game *game, char **lines, int total_lines)
 	int	cmax;
 	int	l;
 
-	init_texture(&game->textures);
+	init_texture(&game->texture);
 	init_color(&game->floor);
 	init_color(&game->ceiling);
 	ids_found = parse_header_lines(game, lines, total_lines, &map_start);
@@ -112,8 +112,8 @@ int	process_map_lines(t_game *game, char **lines, int total_lines)
 	if (map_start == -1)
 		return (print_error("Error\nNo map found in file"), 1);
 	/* Validate that all 6 required identifiers are present */
-	if (!game->textures.north || !game->textures.south || !game->textures.west
-		|| !game->textures.east)
+	if (!game->texture.north || !game->texture.south || !game->texture.west
+		|| !game->texture.east)
 		return (print_error("Error\nMissing texture identifiers"), 1);
 	/* Copy map lines into game->map.grid */
 	rows = total_lines - map_start;

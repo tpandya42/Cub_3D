@@ -3,38 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpandya <tpandya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 15:08:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/12 08:00:28 by albetanc         ###   ########.fr       */
+/*   Created: 2025/12/09 12:00:00 by tpandya           #+#    #+#             */
+/*   Updated: 2025/12/09 12:00:00 by tpandya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	close_win(t_game *game)
+void	init_win(t_display *disp)
 {
-	clean_exit(game, 0);
-	return (0);
+	disp->win_w = WIN_WIDTH;
+	disp->win_h = WIN_HEIGHT;
+	disp->win = NULL;
+	disp->img = NULL;
+	disp->addr = NULL;
+	disp->bpp = 0;
+	disp->line_len = 0;
+	disp->endian = 0;
 }
 
 void	*create_win(t_display *disp)
 {
-	char	*msg;
-
-	msg = "Wonderland";
-	disp->win = mlx_new_window(disp->mlx, disp->win_w, disp->win_h, msg);
+	disp->win = mlx_new_window(disp->mlx, disp->win_w, disp->win_h, "cub3D");
 	if (!disp->win)
 	{
-		print_error("Error: creating a window");
+		print_error("Error: Unable to create window");
 		return (NULL);
 	}
 	return (disp->win);
 }
 
-
-void	init_win(t_display *disp)
+int	close_win(t_game *game)
 {
-	disp->win_h = WIN_HEIGHT;
-	disp->win_w = WIN_WIDTH;
+	clean_exit(game, 0);
+	return (0);
 }

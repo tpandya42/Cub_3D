@@ -20,6 +20,7 @@ void	init_render_tex(t_render_tex *rtex);
 void	init_key(t_input_key *key);
 void	init_minimap(t_game *game);
 int		init_display(t_display *display);
+int		zero_display(t_display *display);
 void	init_player(t_player *player);
 void	init_map(t_map *map);
 void	init_texture(t_texture *texture);
