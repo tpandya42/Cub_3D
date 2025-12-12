@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 15:03:16 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/09 18:29:07 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/12 20:07:29 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,46 +26,33 @@ double	ft_floor(double x)
 		return ((double)truncated_int);
 }
 
-//void	get_wall_sampler(t_sampler *sam, t_game *game, t_ray *ray, t_wall wall)
-//{
-//	double hit = ray->hit;//new
-//	if (hit >= 1.0)//new
-//		hit = 1.0 - EPSILON;//new
-//	sam->tex_x = (int)(hit * wall.tex->width);
-//	if ((ray->side == 0 && ray->step_x > 0)
-//		|| (ray->side == 1 && ray->step_y < 0))
-//		sam->tex_x = wall.tex->width - sam->tex_x - 1;
-
-//	sam->step = (double)wall.tex->height / (wall.wall_end - wall.wall_start);
-//	sam->tex_pos = (wall.wall_start - game->display.win_h / 2
-//			+ (wall.wall_end - wall.wall_start) / 2) * sam->step;
-//}
 void	get_wall_sampler(t_sampler *sam, t_game *game, t_ray *ray, t_wall wall)
 {
-	double wall_height_unclamped;//change ame
-	double hit;
+	double	hit;
+	double	r_wall_hei;
+	double	draw_start;
 
 	hit = ray->hit;
 	if (hit >= 1.0)
 		hit = 1.0 - EPSILON;
-	
 	sam->tex_x = (int)(hit * wall.tex->width);
-
 	if ((ray->side == 0 && ray->step_x > 0)
 		|| (ray->side == 1 && ray->step_y < 0))
 		sam->tex_x = wall.tex->width - sam->tex_x - 1;
-
-	sam->step = (double)wall.tex->height / (wall.wall_end - wall.wall_start);
-	
-	wall_height_unclamped = (double)game->display.win_h / ray->wall_dist;
-	
-	sam->tex_pos = (wall.wall_start - ((double)game->display.win_h / 2.0 - wall_height_unclamped / 2.0)) * sam->step;
+	r_wall_hei = (double)game->display.win_h / ray->wall_dist;
+	sam->step = (double)wall.tex->height / r_wall_hei;
+	draw_start = game->display.win_h / 2.0 - r_wall_hei / 2.0;
+	sam->tex_pos = (wall.wall_start - draw_start) * sam->step;
 }
 
 
+/*
+* ray->side == 0 is vertical E/W
+* ray->step_y > 0 is hrz N/S
+*/
 t_wall_data	*get_wall_face(t_game *game, t_ray *ray)
 {
-	if (ray->side == 0)//vertical (E/W)
+	if (ray->side == 0)
 	{
 		if (ray->step_x > 0)
 			return (&game->rtex.east);
@@ -74,7 +61,7 @@ t_wall_data	*get_wall_face(t_game *game, t_ray *ray)
 	}
 	else
 	{
-		if (ray->step_y > 0)//hrz (N/S)
+		if (ray->step_y > 0)
 			return (&game->rtex.south);
 		else
 			return (&game->rtex.north);
