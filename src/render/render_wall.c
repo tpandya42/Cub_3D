@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 15:03:16 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/12 20:07:29 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/12 20:35:37 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	get_wall_sampler(t_sampler *sam, t_game *game, t_ray *ray, t_wall wall)
 	draw_start = game->display.win_h / 2.0 - r_wall_hei / 2.0;
 	sam->tex_pos = (wall.wall_start - draw_start) * sam->step;
 }
-
 
 /*
 * ray->side == 0 is vertical E/W
