@@ -6,16 +6,17 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:47:37 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/26 08:33:55 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 10:01:27 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
+// bpp = bytes por pixel
 void	my_mlx_pixel_put(t_display *display, int x, int y, int color)
 {
 	char	*dst;
-	int		bpp_bytes; // bytes por pixel
+	int		bpp_bytes;
 
 	if (x < 0 || x >= display->win_w || y < 0 || y >= display->win_h)
 		return ;
@@ -24,19 +25,17 @@ void	my_mlx_pixel_put(t_display *display, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-static void	draw_square(t_game *game, int x, int y, int size, int color)
+static void	draw_square(t_game *game, int x, int y, int color)
 {
-	int	dx;//delta x
-	int	dy;//delta y
+	int	dx;
+	int	dy;
 
 	dy = 0;
-	while (dy < size)
+	while (dy < game->minimap.tile_size)
 	{
 		dx = 0;
-		while (dx < size)
+		while (dx < game->minimap.tile_size)
 		{
-			//mlx_pixel_put(game->display.mlx, game->display.win,
-			//	x + dx, y + dy, color);
 			my_mlx_pixel_put(&game->display, x + dx, y + dy, color);
 			dx++;
 		}
@@ -63,7 +62,6 @@ void	draw_minimap(t_game *game)
 			draw_square(game,
 				game->minimap.offset_x + col * game->minimap.tile_size,
 				game->minimap.offset_y + row * game->minimap.tile_size,
-				game->minimap.tile_size,
 				color);
 			col++;
 		}
@@ -77,5 +75,3 @@ void	render_minimap(t_game *game)
 	draw_player_minimap(game);
 	draw_player_ray(game);
 }
-
-
