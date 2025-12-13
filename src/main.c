@@ -6,12 +6,11 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:45:17 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 13:43:10 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 13:52:41 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-#include "parsing.h"
 
 static int	map_extension_checker(char *map)
 {
