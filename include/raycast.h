@@ -6,14 +6,12 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 08:40:24 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/26 08:33:18 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 13:43:30 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RAYCAST_H
 # define RAYCAST_H
-
-# include "debug.h"
 
 t_ray	raycast(t_game *game, int col);
 void	init_ray(t_player *player, t_ray *ray, int col);

@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:45:17 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 13:39:15 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 13:43:10 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,55 +54,55 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	verify(argc, argv);
-	DEBUG_LOG("After verify\n");
+	ft_printf("After verify\n");
 	init_struct(&game);
-	DEBUG_LOG("After init_struct\n");
+	ft_printf("After init_struct\n");
 	if (parse_map(&game, argv[1]))
 	{
 		print_error("Error: failed to parse map");
 		return (1);
 	}
-	DEBUG_LOG("After parse_map - rows=%d cols=%d\n",
+	ft_printf("After parse_map - rows=%d cols=%d\n",
 		game.map.rows, game.map.cols);
 	/* Set player starting position from parsed map data */
-	DEBUG_LOG("Player_x=%d player_y=%d dir=%c\n",
+	ft_printf("Player_x=%d player_y=%d dir=%c\n",
 		game.map.player_x, game.map.player_y, game.map.player_dir);
 	game.player.ini_x = game.map.player_x + 0.5;
 	game.player.ini_y = game.map.player_y + 0.5;
 	game.player.x = game.player.ini_x;
 	game.player.y = game.player.ini_y;
-	DEBUG_LOG("Before init_minimap\n");
+	ft_printf("Before init_minimap\n");
 	init_minimap(&game);
-	DEBUG_LOG("After init_minimap\n");
+	ft_printf("After init_minimap\n");
 	/* Initialize display (mlx) before loading textures */
 	if (init_display(&game.display))
 	{
 		print_error("Error: failed to initialize display");
 		return (1);
 	}
-	DEBUG_LOG("After init_display\n");
+	ft_printf("After init_display\n");
 	/* Load textures from parsed paths */
-	DEBUG_LOG("Texture paths: N=%s S=%s\\n",
+	ft_printf("Texture paths: N=%s S=%s\\n",
 		game.texture.north, game.texture.south);
 	if (load_textures(&game))
 	{
 		print_error("Error: failed to load textures");
 		return (1);
 	}
-	DEBUG_LOG("After load_textures\n");
+	ft_printf("After load_textures\n");
 	setup_ini_vect(&game.player, game.map.player_dir);
-	DEBUG_LOG("After setup_ini_vect\n");
+	ft_printf("After setup_ini_vect\n");
 	if (!create_win(&game.display))//include print_error msg?
 		return (1);
-	DEBUG_LOG("After create_win\n");
+	ft_printf("After create_win\n");
 	mlx_loop_hook(game.display.mlx, render_scene, &game);
-	DEBUG_LOG("After mlx_loop_hook\n");
+	ft_printf("After mlx_loop_hook\n");
 	mlx_hook(game.display.win, 17, 0, close_win, &game);
 	mlx_hook(game.display.win, 2, 1L << 0, key_press, &game);
 	mlx_hook(game.display.win, 3, 1L << 1, key_release, &game);
-	DEBUG_LOG("Before mlx_loop\n");
-	DEBUG_LOG("Player position: (%.2f, %.2f)\n", game.player.x, game.player.y);
-	DEBUG_LOG("Window size: %dx%d", WIN_WIDTH, WIN_HEIGHT);
+	ft_printf("Before mlx_loop\n");
+	ft_printf("Player position: (%.2f, %.2f)\n", game.player.x, game.player.y);
+	ft_printf("Window size: %dx%d", WIN_WIDTH, WIN_HEIGHT);
 	mlx_loop(game.display.mlx);
 	return (0);
 }
