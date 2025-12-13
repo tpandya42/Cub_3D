@@ -6,12 +6,13 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 08:09:49 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/20 08:50:09 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 10:13:27 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
+//rs negative
 void	rotate_left(t_game *game)
 {
 	double	old_dir_x; 
@@ -20,7 +21,7 @@ void	rotate_left(t_game *game)
 
 	old_dir_x = game->player.dir_x;
 	old_plane_x = game->player.plane_x;
-	rs = game->player.rot_speed;//negative
+	rs = game->player.rot_speed;
 	game->player.dir_x = game->player.dir_x * cos(rs)
 		- game->player.dir_y * sin(rs);
 	game->player.dir_y = old_dir_x * sin(rs)
@@ -31,6 +32,7 @@ void	rotate_left(t_game *game)
 		+ game->player.plane_y * cos(rs);
 }
 
+//old_plane_x = positive -> clockwise
 void	rotate_right(t_game *game)
 {
 	double	old_dir_x;
@@ -39,7 +41,7 @@ void	rotate_right(t_game *game)
 
 	rs = game->player.rot_speed;
 	old_dir_x = game->player.dir_x;
-	old_plane_x = game->player.plane_x;//positive -> clockwise
+	old_plane_x = game->player.plane_x;
 	game->player.dir_x = game->player.dir_x * cos(rs) 
 		+ game->player.dir_y * sin(rs);
 	game->player.dir_y = -old_dir_x * sin(rs) 
