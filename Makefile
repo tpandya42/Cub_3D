@@ -29,7 +29,6 @@ src/init/init_utils.c \
 src/init/init_wall.c \
 \
 src/movement/move.c \
-src/movement/rotation.c \
 \
 src/player/player.c \
 src/player/player_setup.c \

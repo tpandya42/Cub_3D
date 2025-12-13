@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 17:34:47 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 11:16:39 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 16:30:10 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ void	draw_player_ray(t_game *game)
 	double	hit_x;
 	double	hit_y;
 
+	if (game->map.cols > MAX_MAP_COLS_DRAW 
+		|| game->map.rows > MAX_MAP_ROWS_DRAW)
+		return ;
 	init_ray(&game->player, &ray, WIN_WIDTH / 2);
 	cross_tile(game, &ray);
 	wall_dist(&ray, &game->player);

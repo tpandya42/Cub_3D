@@ -1,0 +1,15 @@
+NO ./textures/milan_no.xpm
+SO ./textures/milan_so.xpm
+WE ./textures/milan_we.xpm
+EA ./textures/milan_ea.xpm
+
+F 105, 120, 140
+C 220, 208, 255
+
+1111111111111
+1E00000000001
+1111110111101
+1000000000101
+1011111111101
+1000000000001
+1111111111111

@@ -1,0 +1,17 @@
+NO ./textures/wolfenstein/aguila.xpm
+SO ./textures/wolfenstein/blue_stone.xpm
+WE ./textures/wolfenstein/grey_stone.xpm
+EA ./textures/wolfenstein/mossy.xpm
+
+F 220,100,0
+C 225,30,0
+
+111111111
+100010001
+100010001
+100010001
+11111S111
+100000001
+100000001
+100000001
+111111111
