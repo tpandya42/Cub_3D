@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:47:37 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 10:01:27 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 16:29:09 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,14 @@ void	draw_minimap(t_game *game)
 	int	col;
 	int	color;
 
+	if (game->map.cols > MAX_MAP_COLS_DRAW 
+		|| game->map.rows > MAX_MAP_ROWS_DRAW)
+		return ;
 	row = 0;
 	while (row < game->map.rows)
 	{
 		col = 0;
-		while (col < game->map.cols)
+		while (col < game->map.cols && game->map.grid[row][col] != '\0')
 		{
 			if (game->map.grid[row][col] == '1') 
 				color = COLOR_WALL;

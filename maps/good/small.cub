@@ -1,0 +1,12 @@
+NO ./textures/col_no.xpm
+SO ./textures/col_so.xpm
+WE ./textures/col_we.xpm
+EA ./textures/col_ea.xpm
+
+F 250,245,235
+C 230,235,240
+
+11111
+10N01
+10001
+11111

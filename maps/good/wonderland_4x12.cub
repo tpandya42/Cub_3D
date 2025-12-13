@@ -1,0 +1,12 @@
+NO ./textures/ali_no.xpm
+SO ./textures/ali_so.xpm
+WE ./textures/ali_we.xpm
+EA ./textures/ali_ea.xpm
+
+F $121,85,72
+C 140,128,118
+
+111111111111
+1N0000000001
+100000000001
+111111111111

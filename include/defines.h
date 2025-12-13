@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 08:28:02 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 12:39:11 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 16:27:44 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@
 
 //Minimap
 # define PLAYER_SIZE 3
+#define MAX_MAP_COLS_DRAW 25
+#define MAX_MAP_ROWS_DRAW 25
 
 #endif
