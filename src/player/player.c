@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 17:34:47 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 11:13:10 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 11:16:39 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ void	draw_player_ray(t_game *game)
 	draw_line(&game->display, line, COLOR_RAY);
 }
 
+/*
+* draws a circle using an approximate Bresenham point algorithm 
+* (x^2+y^2≤r^2)
+* iterating pixels in a 2r-sided square centered at (cx,cy) 
+* and painting those within the radius.
+*/
 void	draw_circle(t_display *disp, int cx, int cy, int r)
 {
 	int	x;
