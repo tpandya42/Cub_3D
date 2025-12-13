@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:45:17 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 09:49:04 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 13:24:17 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,23 +86,21 @@ int	main(int argc, char **argv)
 		game.texture.north, game.texture.south);
 	if (load_textures(&game))
 	{
-		ft_printf("Error\\nFailed to load textures\\n");
+		ft_printf("Error\\nFailed to load textures\n");
 		return (1);
 	}
-	ft_printf("DEBUG: After load_textures\\n");
+	ft_printf("DEBUG: After load_textures\n");
 	setup_ini_vect(&game.player, game.map.player_dir);
-	ft_printf("DEBUG: After setup_ini_vect\\n");
+	ft_printf("DEBUG: After setup_ini_vect\n");
 	if (!create_win(&game.display))
 		return (1);
-	ft_printf("DEBUG: After create_win\\n");
+	ft_printf("DEBUG: After create_win\n");
 	mlx_loop_hook(game.display.mlx, render_scene, &game);
-	ft_printf("DEBUG: After mlx_loop_hook\\n");
+	ft_printf("DEBUG: After mlx_loop_hook\n");
 	mlx_hook(game.display.win, 17, 0, close_win, &game);
 	mlx_hook(game.display.win, 2, 1L << 0, key_press, &game);
 	mlx_hook(game.display.win, 3, 1L << 1, key_release, &game);
-	ft_printf("DEBUG: Before mlx_loop\\n");
-	DEBUG_LOG("Player position: (%.2f, %.2f)", game.player.x, game.player.y);
-	DEBUG_LOG("Window size: %dx%d", WIN_WIDTH, WIN_HEIGHT);
+	ft_printf("DEBUG: Before mlx_loop\n");
 	mlx_loop(game.display.mlx);
 	return (0);
 }
