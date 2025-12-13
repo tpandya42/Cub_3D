@@ -6,10 +6,9 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:48:33 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 12:50:16 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 12:52:53 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef MINIMAP_H
 # define MINIMAP_H
