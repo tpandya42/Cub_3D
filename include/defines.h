@@ -6,10 +6,9 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 08:28:02 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 11:06:21 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 12:39:11 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef DEFINES_H
 # define DEFINES_H
