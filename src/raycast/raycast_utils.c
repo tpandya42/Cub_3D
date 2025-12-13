@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 19:27:40 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/04 08:49:42 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 10:22:17 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static void	calculate_x(t_ray *ray, t_player *player)
 		ray->side_x = (ray->current_x + 1.0 - player->x) * ray->delta_x;
 	}
 }
-
 
 /*
 * Step in y and initial side_y
