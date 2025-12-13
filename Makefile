@@ -15,9 +15,6 @@ MLX_DIR = ./minilibx-linux
 MLX_LIB = $(MLX_DIR)/libmlx.a
 MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lz
 
-# Debug flags
-DEBUG_FLAGS = -g -DDEBUG_MODE=1
-
 # Bonus flags
 BONUS_FLAGS = -DBONUS_MODE=1 #check if works
 
@@ -91,16 +88,6 @@ $(OBJ_DIR)/%.o: %.c
 
 #bonus:
 #	$(MAKE) CFLAGS="$(CFLAGS) $(BONUS_FLAGS)" NAME="$(NAME)_bonus" all #CHECK AND TEST THIS
-
-# ************************************** #
-#              DEBUG MODE                #
-# ************************************** #
-
-debug: CFLAGS += $(DEBUG_FLAGS)
-debug: all
-
-# For macOS users (uncomment below)
-# MLX_FLAGS = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
 # ************************************** #
 #              CLEAN-UP                  #
