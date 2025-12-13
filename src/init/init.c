@@ -6,13 +6,13 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 18:01:44 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/08 15:50:08 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 11:03:40 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	zero_display(t_display *display)
+static int	zero_display(t_display *display)
 {
 	display->mlx = NULL;
 	display->win = NULL;
@@ -26,7 +26,7 @@ int	zero_display(t_display *display)
 	return (0);
 }
 
-void	init_map(t_map *map)
+static void	init_map(t_map *map)
 {
 	map->grid = NULL;
 	map->path = NULL;
@@ -38,7 +38,7 @@ void	init_map(t_map *map)
 	map->player_dir = '\0';
 }
 
-void	init_player(t_player *player)
+static void	init_player(t_player *player)
 {
 	player->ini_x = 0;
 	player->ini_y = 0;
@@ -50,16 +50,6 @@ void	init_player(t_player *player)
 	player->plane_y = 0;
 	player->rot_speed = ROT_SPEED;
 	player->move_speed = M_SPEED;
-}
-
-void	init_texture(t_texture *texture)
-{
-	texture->north = NULL;
-	texture->south = NULL;
-	texture->west = NULL;
-	texture->east = NULL;
-	texture->width = 0;
-	texture->height = 0;
 }
 
 void	init_color(t_color *color)

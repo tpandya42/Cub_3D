@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 17:40:16 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/20 08:37:58 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 11:18:41 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ void	setup_ini_vect(t_player *player, char initial_dir)
 		set_e_vect(player);
 	else if (initial_dir == 'W')
 		set_w_vect(player);
-	else//if it's not valid initial direction -> print a message? check parsing This is a default behav
-		set_n_vect(player);//default
+	else
+		set_n_vect(player);
 }
-
-

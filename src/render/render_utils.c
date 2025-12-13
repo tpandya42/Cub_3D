@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 15:03:11 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 15:19:06 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 10:45:37 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int	floor_color(t_game *game)
 	r = game->floor.floor[0];
 	g = game->floor.floor[1];
 	b = game->floor.floor[2];
-
 	return (create_rgb(r, g, b));
 }
 
@@ -63,4 +62,3 @@ int	sample_texture(t_wall_data *tex, int x, int y)
 	color = *(int *)pixel;
 	return (color);
 }
-

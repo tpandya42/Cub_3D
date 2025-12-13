@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:51:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/09 18:16:15 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 12:58:01 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef enum e_ids
 	ID_C = 1 << 5
 }	t_ids;
 
-
 // DEFINING STRUCTS
 typedef struct s_map
 {
@@ -34,9 +33,9 @@ typedef struct s_map
 	char	*path;
 	int		rows;
 	int		cols;
-	int	total_lines;
-	int	player_x;
-	int	player_y;
+	int		total_lines;
+	int		player_x;
+	int		player_y;
 	char	player_dir;
 }	t_map;
 
@@ -94,7 +93,7 @@ typedef struct s_ray
 	int		step_y;
 	int		side;
 	double	wall_dist;
-	double	hit;//new
+	double	hit;
 }	t_ray;
 
 typedef struct s_sampler
@@ -123,7 +122,6 @@ typedef struct s_render_tex
 	t_wall_data	east;
 }	t_render_tex;
 
-
 typedef struct s_wall
 {
 	int			wall_start;
@@ -134,15 +132,15 @@ typedef struct s_wall
 
 typedef struct s_line
 {
-	int	x0;// starting X coordinate of the line
-	int	y0;// starting Y coordinate of the line
-	int	x1;// ending X coordinate of the line
-	int	y1;// ending Y coordinate of the line
-	int	dx;// absolute difference in X (x1 - x0)
-	int	dy;// absolute difference in Y (y1 - y0)
-	int	sx;// step direction in X (+1 or -1)
-	int	sy;// step direction in Y (+1 or -1)
-	int	err;//accumulated error term for Bresenham’s line algorithm
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
+	int	dx;
+	int	dy;
+	int	sx;
+	int	sy;
+	int	err;
 }	t_line;
 
 typedef struct s_minimap

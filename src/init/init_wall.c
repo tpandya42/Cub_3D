@@ -6,13 +6,23 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 14:54:09 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 14:55:10 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 10:52:20 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	init_wall_data(t_wall_data *wdata)
+void	init_texture(t_texture *texture)
+{
+	texture->north = NULL;
+	texture->south = NULL;
+	texture->west = NULL;
+	texture->east = NULL;
+	texture->width = 0;
+	texture->height = 0;
+}
+
+static void	init_wall_data(t_wall_data *wdata)
 {
 	wdata->img_ptr = NULL;
 	wdata->addr = NULL;
