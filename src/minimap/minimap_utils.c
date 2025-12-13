@@ -6,20 +6,20 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 08:16:01 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/08 17:22:35 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/13 10:05:06 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
+// Put pixel to draw the pixel
 static void	draw_line_loop(t_display *d, t_line *line, int color)
 {
 	int	e2;
 
 	while (1)
 	{
-		put_pixel(d, line->x0, line->y0, color); // Draw the pixel
-
+		put_pixel(d, line->x0, line->y0, color);
 		if (line->x0 == line->x1 && line->y0 == line->y1)
 			break ;
 		e2 = 2 * line->err;
@@ -55,10 +55,8 @@ void	draw_line(t_display *d, t_line line_pts, int color)
 	else
 		line.sy = -1;
 	line.err = line.dx - line.dy;
-
 	draw_line_loop(d, &line, color);
 }
-
 
 void	put_pixel(t_display *d, int x, int y, int color)
 {
@@ -66,8 +64,6 @@ void	put_pixel(t_display *d, int x, int y, int color)
 
 	if (x < 0 || y < 0 || x >= d->win_w || y >= d->win_h)
 		return ;
-
 	dst = d->addr + (y * d->line_len + x * (d->bpp / 8));
 	*(unsigned int *)dst = color;
 }
-
