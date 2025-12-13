@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycast.h                                          :+:      :+:    :+:   */
+/*   debug.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 08:40:24 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/26 08:33:18 by albetanc         ###   ########.fr       */
+/*   Created: 2025/11/13 08:41:13 by albetanc          #+#    #+#             */
+/*   Updated: 2025/11/13 08:43:20 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAYCAST_H
-# define RAYCAST_H
+#ifndef DEBUG_H
+# define DEBUG_H
 
-# include "debug.h"
+# include <stdio.h>
 
-t_ray	raycast(t_game *game, int col);
-void	init_ray(t_player *player, t_ray *ray, int col);
-void	cross_tile(t_game *game, t_ray *ray);
-void	wall_dist(t_ray *ray, t_player *player);
-void	step_side(t_ray *ray, t_player *player);
-void	delta_dist(t_ray *ray);
-void	ray_direction(t_ray *ray, t_player *player, int col, int win_wid);
+# ifdef DEBUG_MODE
+#  define DEBUG_LOG(fmt, ...) \
+    printf("[DEBUG] " fmt "\n", ##__VA_ARGS__)
+# else
+#  define DEBUG_LOG(fmt, ...) \
+    do { } while (0)
+# endif
 
 #endif
