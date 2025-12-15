@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 15:03:16 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/15 14:50:53 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:08:09 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,6 @@ static void	draw_col(t_game *game, t_wall data, t_ray *ray)
 	t_sampler	sam;
 
 	get_wall_sampler(&sam, game, ray, data);
-	printf("TEX_X=%d, hit=%.3f, side=%d, tex_name=%s\n", 
-           sam.tex_x, ray->hit, ray->side, 
-           (ray->side==1 && ray->step_y<0) ? "NORTH" : 
-           (ray->side==1 && ray->step_y>0) ? "SOUTH" : 
-           (ray->side==0 && ray->step_x>0) ? "EAST" : "WEST");
-    
 	y = 0;
 	while (y < game->display.win_h)
 	{
