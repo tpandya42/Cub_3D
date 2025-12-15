@@ -57,6 +57,8 @@ void	move_forward(t_game *game)
 {
 	double	nx;
 	double	ny;
+	// int		check_x;
+	// int		check_y;
 
 	nx = game->player.x + game->player.dir_x * game->player.move_speed;
 	ny = game->player.y + game->player.dir_y * game->player.move_speed;
@@ -72,6 +74,8 @@ void	move_back(t_game *game)
 {
 	double	nx;
 	double	ny;
+	// int		check_x;
+	// int		check_y;
 
 	nx = game->player.x - game->player.dir_x * game->player.move_speed;
 	ny = game->player.y - game->player.dir_y * game->player.move_speed;

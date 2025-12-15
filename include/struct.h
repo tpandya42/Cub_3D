@@ -143,6 +143,19 @@ typedef struct s_line
 	int	err;
 }	t_line;
 
+/*typedef struct s_line
+{
+	int	x0;// starting X coordinate of the line
+	int	y0;// starting Y coordinate of the line
+	int	x1;// ending X coordinate of the line
+	int	y1;// ending Y coordinate of the line
+	int	dx;// absolute difference in X (x1 - x0)
+	int	dy;// absolute difference in Y (y1 - y0)
+	int	sx;// step direction in X (+1 or -1)
+	int	sy;// step direction in Y (+1 or -1)
+	int	err;//accumulated error term for Bresenham’s line algorithm
+}	t_line; */
+
 typedef struct s_minimap
 {
 	int	tile_size;

@@ -30,6 +30,18 @@ void	wall_dist(t_ray *ray, t_player *player)
 }
 
 /*
+* Check if position is a wall (includes bounds check)
+*/
+// static int	is_wall(t_game *game, int x, int y)
+// {
+// 	if (x < 0 || y < 0 || x >= game->map.cols || y >= game->map.rows)
+// 		return (1);
+// 	if (game->map.grid[y][x] == '1' || game->map.grid[y][x] == ' ')
+// 		return (1);
+// 	return (0);
+// }
+
+/*
 * To step the ray through the map until it hits a wall
 * 1. Jump to next map tile in X or Y direction:
 *		delta_x move to next x-side
