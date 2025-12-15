@@ -80,7 +80,7 @@ static int	flood_check(char **grid, int **visited, int r, int c, int rows)
 
 /* ========== MAP ENCLOSURE VALIDATION ========== */
 
-int	validate_map_closed(t_game *game)
+int	check_map_closed(t_game *game)
 {
 	int		**visited;
 	int		r;
@@ -120,11 +120,11 @@ int	validate_map_closed(t_game *game)
 
 static int	is_valid_map_char(char c)
 {
-	return (c == '0' || c == '1' || c == ' ' || c == 'N' || c == 'S'
-		|| c == 'E' || c == 'W' || c == '\n' || c == '\0');
+	return (c == '0' || c == '1' || c == ' ' || c == 'N' || c == 'S' || c == 'E'
+		|| c == 'W' || c == '\n' || c == '\0');
 }
 
-int	validate_map_chars(t_game *game)
+int	check_chars(t_game *game)
 {
 	int		r;
 	int		c;
@@ -156,7 +156,7 @@ int	is_player_char(char c)
 	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
 }
 
-int	validate_player_not_on_edge(t_game *game)
+int	check_player_not_on_edge(t_game *game)
 {
 	int	px;
 	int	py;

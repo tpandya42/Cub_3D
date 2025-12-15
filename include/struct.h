@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:51:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/11/28 15:16:17 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/15 13:48:17 by tpandya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ typedef struct s_ray
 	double	wall_dist; 
 }	t_ray;
 
-typedef struct s_sampler//check
+typedef struct s_sampler
 {
 	int		tex_x;
 	double	tex_pos;
@@ -133,6 +133,19 @@ typedef struct s_wall
 
 typedef struct s_line
 {
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
+	int	dx;
+	int	dy;
+	int	sx;
+	int	sy;
+	int	err;
+}	t_line;
+
+/*typedef struct s_line
+{
 	int	x0;// starting X coordinate of the line
 	int	y0;// starting Y coordinate of the line
 	int	x1;// ending X coordinate of the line
@@ -142,7 +155,7 @@ typedef struct s_line
 	int	sx;// step direction in X (+1 or -1)
 	int	sy;// step direction in Y (+1 or -1)
 	int	err;//accumulated error term for Bresenham’s line algorithm
-}	t_line;
+}	t_line; */
 
 typedef struct s_minimap
 {

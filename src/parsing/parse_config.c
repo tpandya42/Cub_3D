@@ -97,7 +97,7 @@ static char	*create_padded_line(const char *src, int width)
 	return (line);
 }
 
-static int	copy_map_grid(t_game *game, char **lines, int map_start, int rows)
+static int	grid_cp(t_game *game, char **lines, int map_start, int rows)
 {
 	int	r;
 	int	width;
@@ -119,17 +119,17 @@ static int	copy_map_grid(t_game *game, char **lines, int map_start, int rows)
 	return (1);
 }
 
-static int	run_validations(t_game *game)
+static int	all_tests(t_game *game)
 {
-	if (!validate_textures(game))
+	if (!check_tex(game))
 		return (0);
-	if (!validate_map_chars(game))
+	if (!check_chars(game))
 		return (0);
 	if (!find_player_position(game))
 		return (0);
-	if (!validate_player_not_on_edge(game))
+	if (!check_player_not_on_edge(game))
 		return (0);
-	if (!validate_map_closed(game))
+	if (!check_map_closed(game))
 		return (0);
 	return (1);
 }
@@ -154,9 +154,9 @@ int	process_map_lines(t_game *game, char **lines, int total_lines)
 	rows = total_lines - map_start;
 	if (rows < 3)
 		return (print_error("Error\nMap is too small"), 1);
-	if (!copy_map_grid(game, lines, map_start, rows))
+	if (!grid_cp(game, lines, map_start, rows))
 		return (print_error("Error\nMemory allocation failed"), 1);
-	if (!run_validations(game))
+	if (!all_tests(game))
 		return (1);
 	return (0);
 }

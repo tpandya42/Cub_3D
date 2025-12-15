@@ -20,8 +20,8 @@ static void	trim_trailing(char *str)
 	if (!str)
 		return ;
 	len = ft_strlen(str);
-	while (len > 0 && (str[len - 1] == '\n' || str[len - 1] == ' '
-			|| str[len - 1] == '\t' || str[len - 1] == '\r'))
+	while (len > 0 && (str[len - 1] == '\n' || str[len - 1] == ' ' || str[len
+			- 1] == '\t' || str[len - 1] == '\r'))
 	{
 		str[len - 1] = '\0';
 		len--;
@@ -86,7 +86,7 @@ static int	validate_single_texture(char *path)
 }
 
 /* Validate all texture paths exist and are readable .xpm files */
-int	validate_textures(t_game *game)
+int	check_tex(t_game *game)
 {
 	if (!validate_single_texture(game->texture.north))
 		return (0);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tpandya <tpandya@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/15 13:48:30 by tpandya           #+#    #+#             */
+/*   Updated: 2025/12/15 13:48:32 by tpandya          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PARSING_H
 # define PARSING_H
 
@@ -25,12 +37,12 @@ int		is_map_line(const char *s);
 int		parse_header_lines(t_game *game, char **lines, int total, int *mstart);
 
 /* ========== MAP VALIDATION (validate_map.c) ========== */
-int		validate_map_closed(t_game *game);
-int		validate_map_chars(t_game *game);
+int		check_map_closed(t_game *game);
+int		check_chars(t_game *game);
 int		is_player_char(char c);
-int		validate_player_not_on_edge(t_game *game);
+int		check_player_not_on_edge(t_game *game);
 
 /* ========== TEXTURE VALIDATION (validate_texture.c) ========== */
-int		validate_textures(t_game *game);
+int		check_tex(t_game *game);
 
 #endif

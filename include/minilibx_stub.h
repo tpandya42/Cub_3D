@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minilibx_stub.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tpandya <tpandya@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/15 13:44:30 by tpandya           #+#    #+#             */
+/*   Updated: 2025/12/15 13:44:33 by tpandya          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /* Minimal prototypes for the minilibx stubs used during parsing-only build */
 #ifndef MINILIBX_STUB_H
 # define MINILIBX_STUB_H
