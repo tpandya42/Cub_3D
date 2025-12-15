@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 07:49:16 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 15:11:13 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:22:00 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ void	move_forward(t_game *game)
 {
 	double	nx;
 	double	ny;
-	// int		check_x;
-	// int		check_y;
 
 	nx = game->player.x + game->player.dir_x * game->player.move_speed;
 	ny = game->player.y + game->player.dir_y * game->player.move_speed;
@@ -74,8 +72,6 @@ void	move_back(t_game *game)
 {
 	double	nx;
 	double	ny;
-	// int		check_x;
-	// int		check_y;
 
 	nx = game->player.x - game->player.dir_x * game->player.move_speed;
 	ny = game->player.y - game->player.dir_y * game->player.move_speed;
