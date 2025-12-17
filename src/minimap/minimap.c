@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:47:37 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 16:29:09 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:20:20 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,16 @@ static void	draw_square(t_game *game, int x, int y, int color)
 	}
 }
 
+static int	get_tile_color(char tile_char)
+{
+	if (tile_char == '1')
+		return (COLOR_WALL);
+	else if (tile_char == ' ')
+		return (0x202020);
+	else
+		return (COLOR_FLOOR);
+}
+
 void	draw_minimap(t_game *game)
 {
 	int	row;
@@ -58,12 +68,7 @@ void	draw_minimap(t_game *game)
 		col = 0;
 		while (col < game->map.cols && game->map.grid[row][col] != '\0')
 		{
-			if (game->map.grid[row][col] == '1')
-				color = COLOR_WALL;
-			else if (game->map.grid[row][col] == ' ')
-				color = 0x202020;
-			else
-				color = COLOR_FLOOR;
+			color = get_tile_color(game->map.grid[row][col]);
 			draw_square(game,
 				game->minimap.offset_x + col * game->minimap.tile_size,
 				game->minimap.offset_y + row * game->minimap.tile_size,
