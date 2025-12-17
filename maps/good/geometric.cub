@@ -1,7 +1,7 @@
-NO textures/ours/yellow-pattern.xpm
-SO textures/ours/blue-pattern.xpm
-WE textures/ours/red-pattern.xpm
-EA textures/ours/purple-pattern.xpm
+NO textures/geom/yellow-pattern.xpm
+SO textures/geom/blue-pattern.xpm
+WE textures/geom/red-pattern.xpm
+EA textures/geom/purple-pattern.xpm
 
 F 210,180,140
 C 207,236,247

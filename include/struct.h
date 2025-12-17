@@ -6,14 +6,12 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:51:42 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 12:58:01 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/17 17:44:36 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
-
-# include "cub.h"
 
 // DEFINING ENUMS
 typedef enum e_ids

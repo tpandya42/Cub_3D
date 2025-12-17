@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 08:38:05 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 10:39:12 by albetanc         ###   ########.fr       */
+/*   Updated: 2025/12/17 17:40:08 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,15 @@ int	key_release(int keycode, void *param)
 	game = (t_game *)param;
 	if (keycode == KEY_W || keycode == KEY_UP)
 		game->key.forward = 0;
-	else if (keycode == KEY_S || keycode == KEY_DOWN)
+	if (keycode == KEY_S || keycode == KEY_DOWN)
 		game->key.back = 0;
-	else if (keycode == KEY_A)
+	if (keycode == KEY_A)
 		game->key.left = 0;
-	else if (keycode == KEY_D)
+	if (keycode == KEY_D)
 		game->key.right = 0;
-	else if (keycode == KEY_LEFT || keycode == KEY_Q)
+	if (keycode == KEY_LEFT || keycode == KEY_Q)
 		game->key.rot_left = 0;
-	else if (keycode == KEY_RIGHT || keycode == KEY_E)
+	if (keycode == KEY_RIGHT || keycode == KEY_E)
 		game->key.rot_right = 0;
 	return (0);
 }
@@ -79,17 +79,17 @@ int	key_press(int keycode, void *param)
 	game = (t_game *)param;
 	if (keycode == KEY_W || keycode == KEY_UP)
 		game->key.forward = 1;
-	else if (keycode == KEY_S || keycode == KEY_DOWN)
+	if (keycode == KEY_S || keycode == KEY_DOWN)
 		game->key.back = 1;
-	else if (keycode == KEY_A)
+	if (keycode == KEY_A)
 		game->key.left = 1;
-	else if (keycode == KEY_D)
+	if (keycode == KEY_D)
 		game->key.right = 1;
-	else if (keycode == KEY_LEFT || keycode == KEY_Q)
+	if (keycode == KEY_LEFT || keycode == KEY_Q)
 		game->key.rot_left = 1;
-	else if (keycode == KEY_RIGHT || keycode == KEY_E)
+	if (keycode == KEY_RIGHT || keycode == KEY_E)
 		game->key.rot_right = 1;
-	else if (keycode == KEY_ESC)
+	if (keycode == KEY_ESC)
 		close_esc(game);
 	return (0);
 }
