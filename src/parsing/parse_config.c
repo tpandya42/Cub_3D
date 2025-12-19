@@ -12,64 +12,6 @@
 
 #include "cub.h"
 
-/* ========== PLAYER POSITION DETECTION ========== */
-
-static int	find_player_position(t_game *game)
-{
-	int		r;
-	int		c;
-	int		count;
-	char	**grid;
-
-	count = 0;
-	grid = game->map.grid;
-	r = 0;
-	while (r < game->map.rows)
-	{
-		c = 0;
-		while (grid[r][c])
-		{
-			if (grid[r][c] == 'N' || grid[r][c] == 'S' || grid[r][c] == 'E'
-				|| grid[r][c] == 'W')
-			{
-				game->map.player_x = c;
-				game->map.player_y = r;
-				game->map.player_dir = grid[r][c];
-				count++;
-			}
-			c++;
-		}
-		r++;
-	}
-	if (count == 0)
-		return (print_error("Error\nNo player start position found"), 0);
-	if (count > 1)
-		return (print_error("Error\nMultiple player positions found"), 0);
-	return (1);
-}
-
-/* ========== MAIN PROCESSING FUNCTION ========== */
-
-static int	get_max_width(char **lines, int map_start, int rows)
-{
-	int	r;
-	int	len;
-	int	cmax;
-
-	cmax = 0;
-	r = 0;
-	while (r < rows)
-	{
-		len = ft_strlen(lines[map_start + r]);
-		if (len > 0 && lines[map_start + r][len - 1] == '\n')
-			len--;
-		if (len > cmax)
-			cmax = len;
-		r++;
-	}
-	return (cmax);
-}
-
 static char	*create_padded_line(const char *src, int width)
 {
 	char	*line;

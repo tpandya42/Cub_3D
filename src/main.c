@@ -63,7 +63,6 @@ int	main(int argc, char **argv)
 	}
 	ft_printf("After parse_map - rows=%d cols=%d\n",
 		game.map.rows, game.map.cols);
-	/* Set player starting position from parsed map data */
 	ft_printf("Player_x=%d player_y=%d dir=%c\n",
 		game.map.player_x, game.map.player_y, game.map.player_dir);
 	game.player.ini_x = game.map.player_x + 0.5;
@@ -73,14 +72,12 @@ int	main(int argc, char **argv)
 	ft_printf("Before init_minimap\n");
 	init_minimap(&game);
 	ft_printf("After init_minimap\n");
-	/* Initialize display (mlx) before loading textures */
 	if (init_display(&game.display))
 	{
 		print_error("Error: failed to initialize display");
 		return (1);
 	}
 	ft_printf("After init_display\n");
-	/* Load textures from parsed paths */
 	ft_printf("Texture paths: N=%s S=%s\n",
 		game.texture.north, game.texture.south);
 	if (load_textures(&game))
@@ -91,7 +88,7 @@ int	main(int argc, char **argv)
 	ft_printf("After load_textures\n");
 	setup_ini_vect(&game.player, game.map.player_dir);
 	ft_printf("After setup_ini_vect\n");
-	if (!create_win(&game.display))//include print_error msg?
+	if (!create_win(&game.display))
 		return (1);
 	ft_printf("After create_win\n");
 	mlx_loop_hook(game.display.mlx, render_scene, &game);

@@ -12,67 +12,6 @@
 
 #include "cub.h"
 
-void	move_left(t_game *game)
-{
-	double	nx;
-	double	ny;
-
-	nx = game->player.x + game->player.dir_y * game->player.move_speed;
-	ny = game->player.y - game->player.dir_x * game->player.move_speed;
-	if (game->map.grid[(int)game->player.y]
-		[(int)(nx + game->player.dir_y * COLLI_DIST)] != '1')
-		game->player.x = nx;
-	if (game->map.grid[(int)(ny - game->player.dir_x * COLLI_DIST)]
-		[(int)game->player.x] != '1')
-		game->player.y = ny;
-}
-
-void	move_right(t_game *game)
-{
-	double	nx;
-	double	ny;
-
-	nx = game->player.x - game->player.dir_y * game->player.move_speed;
-	ny = game->player.y + game->player.dir_x * game->player.move_speed;
-	if (game->map.grid[(int)game->player.y]
-		[(int)(nx - game->player.dir_y * COLLI_DIST)] != '1')
-		game->player.x = nx;
-	if (game->map.grid[(int)(ny + game->player.dir_x * COLLI_DIST)]
-		[(int)game->player.x] != '1')
-		game->player.y = ny;
-}
-
-//all movements include colision distance
-void	move_forward(t_game *game)
-{
-	double	nx;
-	double	ny;
-
-	nx = game->player.x + game->player.dir_x * game->player.move_speed;
-	ny = game->player.y + game->player.dir_y * game->player.move_speed;
-	if (game->map.grid[(int)game->player.y]
-		[(int)(nx + game->player.dir_x * COLLI_DIST)] != '1')
-		game->player.x = nx;
-	if (game->map.grid[(int)(ny + game->player.dir_y * COLLI_DIST)]
-		[(int)game->player.x] != '1')
-		game->player.y = ny;
-}
-
-void	move_back(t_game *game)
-{
-	double	nx;
-	double	ny;
-
-	nx = game->player.x - game->player.dir_x * game->player.move_speed;
-	ny = game->player.y - game->player.dir_y * game->player.move_speed;
-	if (game->map.grid[(int)game->player.y]
-		[(int)(nx - game->player.dir_x * COLLI_DIST)] != '1')
-		game->player.x = nx;
-	if (game->map.grid[(int)(ny - game->player.dir_y * COLLI_DIST)]
-		[(int)game->player.x] != '1')
-		game->player.y = ny;
-}
-
 void	handle_movement(t_game *game)
 {
 	if (game->key.forward)

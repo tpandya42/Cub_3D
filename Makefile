@@ -28,6 +28,7 @@ src/init/init.c \
 src/init/init_utils.c \
 src/init/init_wall.c \
 \
+src/movement/move_utils.c \
 src/movement/move.c \
 src/movement/rotate.c \
 \
@@ -45,11 +46,25 @@ src/minimap/minimap.c \
 src/minimap/minimap_utils.c \
 \
 src/utils/cleanup.c \
+src/utils/cleanup_utils.c \
 src/utils/error.c \
 src/utils/textures.c \
 \
 src/window/window.c \
-$(wildcard src/parsing/*.c)
+\
+src/parsing/parse.c \
+src/parsing/parse_config.c \
+src/parsing/parse_config_utils.c \
+src/parsing/parse_utils.c \
+src/parsing/parse_utils_2.c \
+src/parsing/parse_utils_3.c \
+src/parsing/parse_utils_4.c \
+src/parsing/reading.c \
+src/parsing/validate_map.c \
+src/parsing/validate_texture.c \
+src/parsing/validate_utils_0.c \
+src/parsing/validate_utils_1.c \
+src/parsing/validate_utils_2.c
 
 OBJ_DIR = ./obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))

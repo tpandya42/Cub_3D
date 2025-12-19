@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   defines.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tpandya <tpandya@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/19 09:06:17 by tpandya           #+#    #+#             */
+/*   Updated: 2025/12/19 09:06:37 by tpandya          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef DEFINES_H
 # define DEFINES_H
 
@@ -18,7 +30,7 @@
 
 //Minimap
 # define PLAYER_SIZE 3
-#define MAX_MAP_COLS_DRAW 25
-#define MAX_MAP_ROWS_DRAW 25
+# define MAX_MAP_COLS_DRAW 25
+# define MAX_MAP_ROWS_DRAW 25
 
 #endif

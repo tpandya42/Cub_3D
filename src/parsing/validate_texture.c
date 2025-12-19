@@ -21,7 +21,7 @@ static void	trim_trailing(char *str)
 		return ;
 	len = ft_strlen(str);
 	while (len > 0 && (str[len - 1] == '\n' || str[len - 1] == ' ' || str[len
-			- 1] == '\t' || str[len - 1] == '\r'))
+				- 1] == '\t' || str[len - 1] == '\r'))
 	{
 		str[len - 1] = '\0';
 		len--;
