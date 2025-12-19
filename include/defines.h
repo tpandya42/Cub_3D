@@ -23,11 +23,6 @@
 # define ROT_SPEED 0.05
 # define COLLI_DIST 0.5
 
-enum e_ids
-{
-	ALL_IDS = ID_NO | ID_SO | ID_WE | ID_EA | ID_F | ID_C
-};
-
 //Raycasting
 # define CAMERA_PLANE_X 0.2
 # define RAY_MINIMAP_LEN 3.0

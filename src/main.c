@@ -55,7 +55,11 @@ int	main(int argc, char **argv)
 	verify(argc, argv);
 	init_struct(&game);
 	if (parse_map(&game, argv[1]))
+	{
+		clean_texture_paths(&game.texture);
+		clean_map(&game.map);
 		return (print_error("Error: failed to parse map"), 1);
+	}
 	game.player.ini_x = game.map.player_x + 0.5;
 	game.player.ini_y = game.map.player_y + 0.5;
 	game.player.x = game.player.ini_x;

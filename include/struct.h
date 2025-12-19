@@ -21,7 +21,8 @@ typedef enum e_ids
 	ID_WE = 1 << 2,
 	ID_EA = 1 << 3,
 	ID_F = 1 << 4,
-	ID_C = 1 << 5
+	ID_C = 1 << 5,
+	ALL_IDS = ID_NO | ID_SO | ID_WE | ID_EA | ID_F | ID_C
 }	t_ids;
 
 // DEFINING STRUCTS

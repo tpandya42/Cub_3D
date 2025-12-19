@@ -93,6 +93,10 @@ int	process_map_lines(t_game *game, char **lines, int total_lines)
 	if (!game->texture.north || !game->texture.south || !game->texture.west
 		|| !game->texture.east)
 		return (print_error("Error\nMissing texture identifiers"), 1);
+	if (!(game->flags & ID_F))
+		return (print_error("Error\nMissing floor color"), 1);
+	if (!(game->flags & ID_C))
+		return (print_error("Error\nMissing ceiling color"), 1);
 	rows = total_lines - map_start;
 	if (rows < 3)
 		return (print_error("Error\nMap is too small"), 1);

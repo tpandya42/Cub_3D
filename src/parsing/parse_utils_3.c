@@ -16,20 +16,25 @@ static int	check_color_format(const char *str)
 {
 	int	comma_count;
 	int	i;
+	int	has_digit;
 
 	comma_count = 0;
+	has_digit = 0;
 	i = 0;
 	while (str[i] && str[i] != '\n')
 	{
+		if (ft_isdigit(str[i]))
+			has_digit = 1;
 		if (str[i] == ',')
 		{
-			comma_count++;
-			if (!ft_isdigit(str[i + 1]) && str[i + 1] != ' ')
+			if (!has_digit)
 				return (0);
+			comma_count++;
+			has_digit = 0;
 		}
 		i++;
 	}
-	if (comma_count != 2)
+	if (comma_count != 2 || !has_digit)
 		return (0);
 	return (1);
 }

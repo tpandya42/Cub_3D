@@ -15,21 +15,20 @@
 static int	check_and_store(t_game *game,
 			const char **p, int **dest)
 {
-	static int	f_set;
-	static int	c_set;
-
 	if (starts_with(*p, "F "))
 	{
-		if (f_set++)
+		if (game->flags & ID_F)
 			return (print_error("Error\nDuplicate floor color"), -1);
+		game->flags |= ID_F;
 		*dest = game->floor.floor;
 		*p += 2;
 		return (1);
 	}
 	if (starts_with(*p, "C "))
 	{
-		if (c_set++)
+		if (game->flags & ID_C)
 			return (print_error("Error\nDuplicate ceiling color"), -1);
+		game->flags |= ID_C;
 		*dest = game->ceiling.ceiling;
 		*p += 2;
 		return (1);
