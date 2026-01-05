@@ -66,7 +66,7 @@ int	parse_texture_line(t_game *game, const char *line)
 	skip_whitespace(&p);
 	if (*dest)
 	{
-		print_error("Error\nDuplicate texture identifier");
+		print_error("Error: Duplicate texture identifier");
 		return (-1);
 	}
 	*dest = ft_strdup(p);
@@ -79,7 +79,7 @@ int	validate_rgb(int r, int g, int b)
 {
 	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
 	{
-		print_error("Error\nRGB values must be in range [0,255]");
+		print_error("Error: RGB values must be in range [0,255]");
 		return (0);
 	}
 	return (1);

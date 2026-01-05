@@ -56,9 +56,9 @@ int	find_player_position(t_game *game)
 
 	count = player_s(game);
 	if (count == 0)
-		return (print_error("Error\nNo player start position found"), 0);
+		return (print_error("Error: No player start position found"), 0);
 	if (count > 1)
-		return (print_error("Error\nMultiple player positions found"), 0);
+		return (print_error("Error: Multiple player positions found"), 0);
 	return (1);
 }
 

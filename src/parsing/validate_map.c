@@ -28,7 +28,7 @@ int	check_chars(t_game *game)
 		{
 			if (!is_valid_map_char(grid[r][c]))
 			{
-				print_error("Error\nInvalid character in map");
+				print_error("Error: Invalid character in map");
 				return (0);
 			}
 			c++;
@@ -49,12 +49,12 @@ int	check_player_not_on_edge(t_game *game)
 	len = ft_strlen(game->map.grid[py]);
 	if (py == 0 || py == game->map.rows - 1)
 	{
-		print_error("Error\nPlayer cannot be on map edge (top/bottom)");
+		print_error("Error: Player cannot be on map edge (top/bottom)");
 		return (0);
 	}
 	if (px == 0 || px >= len - 1)
 	{
-		print_error("Error\nPlayer cannot be on map edge (left/right)");
+		print_error("Error: Player cannot be on map edge (left/right)");
 		return (0);
 	}
 	return (1);

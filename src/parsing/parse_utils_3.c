@@ -63,7 +63,7 @@ static int	validate_rgb_parts(char **parts)
 		i++;
 	if (i != 3)
 	{
-		print_error("Error\nRGB format must be R,G,B");
+		print_error("Error: RGB format must be R,G,B");
 		return (0);
 	}
 	return (1);
@@ -81,9 +81,9 @@ int	parse_rgb(const char *str, int rgb[3])
 	char	**parts;
 
 	if (!check_color_format(str))
-		return (print_error("Error\nInvalid color format (need R,G,B)"), 0);
+		return (print_error("Error: Invalid color format (need R,G,B)"), 0);
 	if (!validate_color_digits(str))
-		return (print_error("Error\nColor must contain only digits"), 0);
+		return (print_error("Error: Color must contain only digits"), 0);
 	parts = ft_split((char *)str, ',');
 	if (!parts)
 		return (0);
