@@ -1,3 +1,4 @@
+MAKEFLAGS += --no-print-directory -s
 
 # ************************************** #
 #                CONFIG                  #
