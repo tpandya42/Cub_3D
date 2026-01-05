@@ -1,0 +1,66 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cleanup_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tpandya <tpandya@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/05 15:37:50 by tpandya           #+#    #+#             */
+/*   Updated: 2026/01/05 15:37:51 by tpandya          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub.h"
+
+static void	clean_wall_data(t_display *disp, t_wall_data *wd)
+{
+	if (wd->img_ptr)
+	{
+		mlx_destroy_image(disp->mlx, wd->img_ptr);
+		wd->img_ptr = NULL;
+	}
+}
+
+void	clean_render_textures(t_display *disp, t_render_tex *rtex)
+{
+	if (!disp || !disp->mlx || !rtex)
+		return ;
+	clean_wall_data(disp, &rtex->north);
+	clean_wall_data(disp, &rtex->south);
+	clean_wall_data(disp, &rtex->west);
+	clean_wall_data(disp, &rtex->east);
+}
+
+void	clean_window(t_display *disp)
+{
+	if (!disp)
+		return ;
+	if (disp->win)
+	{
+		mlx_destroy_window(disp->mlx, disp->win);
+		disp->win = NULL;
+	}
+}
+
+void	clean_mlx(t_display *disp)
+{
+	if (!disp || !disp->mlx)
+		return ;
+	mlx_destroy_display(disp->mlx);
+	free(disp->mlx);
+	disp->mlx = NULL;
+}
+
+void	clean_exit(t_game *game, int status)
+{
+	if (!game)
+		exit(status);
+	if (game->display.img && game->display.mlx)
+		mlx_destroy_image(game->display.mlx, game->display.img);
+	clean_render_textures(&game->display, &game->rtex);
+	clean_texture_paths(&game->texture);
+	clean_window(&game->display);
+	clean_mlx(&game->display);
+	clean_map(&game->map);
+	exit(status);
+}

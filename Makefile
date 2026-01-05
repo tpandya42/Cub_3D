@@ -17,7 +17,7 @@ MLX_LIB = $(MLX_DIR)/libmlx.a
 MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lz
 
 # Bonus flags
-BONUS_FLAGS = -DBONUS_MODE=1 #check if works
+BONUS_FLAGS = -DBONUS_MODE=1
 
 
 # ************************************** #
@@ -67,11 +67,54 @@ src/parsing/validate_utils_0.c \
 src/parsing/validate_utils_1.c \
 src/parsing/validate_utils_2.c
 
+# Bonus sources
+BONUS_SRC = bonus/src/main_bonus.c \
+\
+bonus/src/init/init_bonus.c \
+bonus/src/init/init_utils_bonus.c \
+bonus/src/init/init_wall_bonus.c \
+\
+bonus/src/movement/move_bonus.c \
+bonus/src/movement/move_utils_bonus.c \
+bonus/src/movement/rotate_bonus.c \
+\
+bonus/src/player/player_bonus.c \
+bonus/src/player/player_setup_bonus.c \
+\
+bonus/src/raycast/raycast_bonus.c \
+bonus/src/raycast/raycast_utils_bonus.c \
+\
+bonus/src/render/render_bonus.c \
+bonus/src/render/render_utils_bonus.c \
+bonus/src/render/render_wall_bonus.c \
+\
+bonus/src/minimap/minimap_bonus.c \
+bonus/src/minimap/minimap_utils_bonus.c \
+\
+bonus/src/utils/cleanup_bonus.c \
+bonus/src/utils/cleanup_utils_bonus.c \
+bonus/src/utils/error_bonus.c \
+bonus/src/utils/textures_bonus.c \
+\
+bonus/src/window/window_bonus.c \
+\
+bonus/src/parsing/parse_bonus.c \
+bonus/src/parsing/parse_config_bonus.c \
+bonus/src/parsing/parse_config_utils_bonus.c \
+bonus/src/parsing/parse_utils_bonus.c \
+bonus/src/parsing/parse_utils_2_bonus.c \
+bonus/src/parsing/parse_utils_3_bonus.c \
+bonus/src/parsing/parse_utils_4_bonus.c \
+bonus/src/parsing/reading_bonus.c \
+bonus/src/parsing/validate_map_bonus.c \
+bonus/src/parsing/validate_texture_bonus.c \
+bonus/src/parsing/validate_utils_0_bonus.c \
+bonus/src/parsing/validate_utils_1_bonus.c \
+bonus/src/parsing/validate_utils_2_bonus.c
+
 OBJ_DIR = ./obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
-
-#BONUS_SRC   = raycast/minimap_bonus.c render/hud_bonus.c #include here
-#BONUS_OBJ   = $(addprefix $(OBJ_DIR)/, $(BONUS_SRC:.c=.o))
+BONUS_OBJ = $(addprefix $(OBJ_DIR)/, $(BONUS_SRC:.c=.o))
 
 # --- Include paths
 INCLUDES    = -I include -I $(LIBFT_DIR)
@@ -102,8 +145,10 @@ $(OBJ_DIR)/%.o: %.c
 #              BONUS MODE                #
 # ************************************** #
 
-#bonus:
-#	$(MAKE) CFLAGS="$(CFLAGS) $(BONUS_FLAGS)" NAME="$(NAME)_bonus" all #CHECK AND TEST THIS
+NAME_BONUS = cub3D
+
+bonus: $(BONUS_OBJ) $(LIBFT_LIB) $(MLX_LIB)
+	$(CC) $(CFLAGS) $(BONUS_FLAGS) $(BONUS_OBJ) $(LIBFT_LIB) $(MLX_LIB) $(MLX_FLAGS) -o $(NAME_BONUS)
 
 # ************************************** #
 #              CLEAN-UP                  #
@@ -117,6 +162,7 @@ clean:
 fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
 	rm -f $(NAME)
+	rm -f $(NAME_BONUS)
 	rm -rf $(OBJ_DIR)
 
 
