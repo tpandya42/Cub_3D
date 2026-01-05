@@ -76,6 +76,18 @@ static int	all_tests(t_game *game)
 	return (1);
 }
 
+static int	check_identifiers(t_game *game)
+{
+	if (!game->texture.north || !game->texture.south
+		|| !game->texture.west || !game->texture.east)
+		return (print_error("Error\nMissing texture identifiers"), 1);
+	if (!(game->flags & ID_F))
+		return (print_error("Error\nMissing floor color"), 1);
+	if (!(game->flags & ID_C))
+		return (print_error("Error\nMissing ceiling color"), 1);
+	return (0);
+}
+
 int	process_map_lines(t_game *game, char **lines, int total_lines)
 {
 	int	map_start;
@@ -90,13 +102,8 @@ int	process_map_lines(t_game *game, char **lines, int total_lines)
 		return (1);
 	if (map_start == -1)
 		return (print_error("Error\nNo map found in file"), 1);
-	if (!game->texture.north || !game->texture.south || !game->texture.west
-		|| !game->texture.east)
-		return (print_error("Error\nMissing texture identifiers"), 1);
-	if (!(game->flags & ID_F))
-		return (print_error("Error\nMissing floor color"), 1);
-	if (!(game->flags & ID_C))
-		return (print_error("Error\nMissing ceiling color"), 1);
+	if (check_identifiers(game) == 1)
+		return (1);
 	rows = total_lines - map_start;
 	if (rows < 3)
 		return (print_error("Error\nMap is too small"), 1);

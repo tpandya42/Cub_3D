@@ -25,7 +25,8 @@ void	clean_render_textures(t_display *disp, t_render_tex *rtex);
 void	clean_window(t_display *disp);
 void	clean_mlx(t_display *disp);
 void	clean_exit(t_game *game, int status);
-
+int		map_extension_checker(char *map);
+int		verify(int argc, char **argv);
 /* Texture loading */
 int		load_textures(t_game *game);
 
