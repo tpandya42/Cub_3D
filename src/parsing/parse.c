@@ -42,7 +42,7 @@ int	parse_map(t_game *game, char *path)
 	lines = read_all(path, &total_lines);
 	if (!lines)
 	{
-		print_error("Error\nFailed to read map file");
+		print_error("Error: Failed to read map file");
 		return (1);
 	}
 	result = process_map_lines(game, lines, total_lines);

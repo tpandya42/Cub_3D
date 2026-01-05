@@ -27,7 +27,7 @@ static int	parse_and_prepare(t_game *game, char *path)
 	{
 		clean_texture_paths(&game->texture);
 		clean_map(&game->map);
-		return (print_error("Error: failed to parse map"), 1);
+		return (1);
 	}
 	init_player(game);
 	init_minimap(game);

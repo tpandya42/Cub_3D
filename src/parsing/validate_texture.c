@@ -37,13 +37,13 @@ static int	check_file_readable(const char *path)
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 	{
-		print_error("Error\nCannot open texture file");
+		print_error("Error: Cannot open texture file");
 		return (0);
 	}
 	if (read(fd, buf, 1) < 0)
 	{
 		close(fd);
-		print_error("Error\nCannot read texture file");
+		print_error("Error: Cannot read texture file");
 		return (0);
 	}
 	close(fd);
@@ -58,12 +58,12 @@ static int	check_xpm_extension(const char *path)
 	ext = ft_strrchr(path, '.');
 	if (!ext)
 	{
-		print_error("Error\nTexture file missing extension");
+		print_error("Error: Texture file missing extension");
 		return (0);
 	}
 	if (ft_strcmp(ext, ".xpm") != 0)
 	{
-		print_error("Error\nTexture file must have .xpm extension");
+		print_error("Error: Texture file must have .xpm extension");
 		return (0);
 	}
 	return (1);
@@ -74,7 +74,7 @@ static int	validate_single_texture(char *path)
 {
 	if (!path)
 	{
-		print_error("Error\nMissing texture path");
+		print_error("Error: Missing texture path");
 		return (0);
 	}
 	trim_trailing(path);

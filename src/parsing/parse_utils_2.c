@@ -18,7 +18,7 @@ static int	check_and_store(t_game *game,
 	if (starts_with(*p, "F "))
 	{
 		if (game->flags & ID_F)
-			return (print_error("Error\nDuplicate floor color"), -1);
+			return (print_error("Error: Duplicate floor color"), -1);
 		game->flags |= ID_F;
 		*dest = game->floor.floor;
 		*p += 2;
@@ -27,7 +27,7 @@ static int	check_and_store(t_game *game,
 	if (starts_with(*p, "C "))
 	{
 		if (game->flags & ID_C)
-			return (print_error("Error\nDuplicate ceiling color"), -1);
+			return (print_error("Error: Duplicate ceiling color"), -1);
 		game->flags |= ID_C;
 		*dest = game->ceiling.ceiling;
 		*p += 2;
@@ -68,7 +68,7 @@ static int	parse_config_line(t_game *game, char *line)
 		return (-1);
 	if (res == 1)
 		return (1);
-	print_error("Error\nInvalid configuration line");
+	print_error("Error: Invalid configuration line");
 	return (-1);
 }
 

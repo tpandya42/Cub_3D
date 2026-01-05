@@ -21,7 +21,7 @@ static int	needs_flood(char c)
 static int	handle_flood_error(int **visited, int rows)
 {
 	free_visited(visited, rows);
-	print_error("Error\nMap not enclosed by walls");
+	print_error("Error: Map not enclosed by walls");
 	return (0);
 }
 
