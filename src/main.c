@@ -6,7 +6,7 @@
 /*   By: albetanc <albetanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:45:17 by albetanc          #+#    #+#             */
-/*   Updated: 2025/12/13 15:22:49 by albetanc         ###   ########.fr       */
+/*   Updated: 2026/01/05 08:27:06 by albetanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ int	verify(int argc, char **av)
 
 	if (argc != 2)
 	{
-		ft_printf("Invalid Inputs\n");
+		print_error("Error: Invalid Inputs");
 		exit(1);
 	}
 	if (map_extension_checker(av[1]) == 0)
 	{
-		ft_printf("Invalid Map Extension\n");
+		print_error("Error: Invalid Map Extension");
 		exit(1);
 	}
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
 	{
-		ft_printf("Can't open file\n");
+		print_error("Error: Can't open file");
 		exit(1);
 	}
 	return (1);
